@@ -1,0 +1,583 @@
+% Copyright (C) He Guanyuming 2020
+% The file is licensed under the MIT license.
+
+\part{Natural Numbers}
+\section{The Peano Axioms}
+I have learned the Peano axioms. They are descriptive rather than constructive. That is, when we are 
+using this axiom system, we assume that natural numbers do exist, and their properties are described by 
+these axioms. The intuition of the Peano axioms might have been counting from 0 (or 1) by the successor 
+function, but if we try to understand the Peano axioms as constructive, for example, giving 0 first and 
+constructing other numbers via the successor function, things may look a little weird, and the axioms 
+may seem incomplete.
+
+There are some remarkable things regarding the axioms. For the first axiom, Peano originally used 1 
+instead of 0. This is merely a difference of symbols here, though 0 and 1 have unique meanings in other 
+areas, so 0 is more widely used today than 1. Peano also gave four axioms about the equality relation, 
+and the first three of them (i.e.~except the one that says the equality relation is closed under 
+natural numbers) are used as more generic assumptions for general mathematical objects.
+
+Once we have described the basic properties of natural numbers and the successor function $S$, we can 
+apply our common symbol system to it. We define $1 := S(0),\ 2 :=S(1)$ and so on.
+
+\subsection{Addition of Natural Numbers}
+Then we define operations, such as addition, on natural numbers. 
+
+\paragraph{Addition}
+The intuition is, the successor function acts like a $+1$ function. That is, 
+\begin{equation}
+n+1 := S(n) \label{eq.add1}
+\end{equation}
+And to add 2 to a number is to merely apply $S$ two times to it. So from the informal equation 
+\ref{eq.add1}, we can furthermore define 
+\begin{equation}
+n+2 := S(S(n)) = S(n+1) \label{eq.add2}
+\end{equation}
+
+Note that by definition, $2=S(1)$. Apply the substitution to equation \ref{eq.add2}, we can see that 
+\[
+n + \textcolor{red}{S(1)} := S(n+\textcolor{red}{1})
+\] We may notice that if we define $n+0 := n$, then equation \ref{eq.add1} can be rewritten as 
+\[
+n + \textcolor{red}{S(0)} := S(n+\textcolor{red}{0})
+\]
+
+So now we could try to assume two rules here:
+\begin{definition}
+\begin{enumerate}
+\item $0+n:=n$,
+\item $S(m)+n:=S(m+n)$
+\end{enumerate}
+\end{definition} and see if it is a good definition of addition.
+
+For every natural number $n$, we first have $0+n=n$. Then if we want to know what $1+n$ is, we have
+\begin{align*}
+1+n 
+&= S(0)+n\ \tag{By Def.~of 1} \\
+&= S(0+n)\ \tag{By the second rule} \\
+&= S(n)\ \tag{By the first rule}
+\end{align*}
+
+Repeat the process to gain more results:
+\begin{align*}
+2+n 
+&= S(1)+n\ \tag{By Def.~of 2} \\
+&= S(1+n)\ \tag{By the second rule} \\
+&= S(S(n))\ \tag{By the result of \(1+n\)}
+\end{align*}
+
+Use induction (Suppose we have known 
+$m+n=\underbrace{S(S(\dots(}_{m \text{ times}}n\underbrace{)\dots))}_{m \text{ times}}$ ):
+\begin{align*}
+S(m)+n
+&= S(m+n)\ \tag{By the second rule} \\
+&=\underbrace{S(S(\dots(}_{m+1 \text{ times}}n\underbrace{)\dots))}_{m+1 \text{ times}}\ 
+\tag{By the result of \(m+n\)}
+\end{align*}
+And then the add operation is defined for every natural number.
+
+Afterward we will turn to some properties of the newly defined operation -- addition. We are going to 
+prove the commutativity and associativity of addition.
+
+\begin{lem}
+For any natural number $n$, $n+0=n$
+\end{lem}
+\begin{proof}
+Firstly, by definition, $0 + 0 = 0$.
+
+Secondly, if for natural number $n$, $n+0=n$ is true, then $S(n)+0=S(n+0)=S(n)$. This closes the 
+induction, so the proposition is right. \qedhere
+\end{proof}
+
+\begin{lem}
+For any natural number $m,n$, $n+S(m)=S(n+m)$ \label{lem2}
+\end{lem}
+\begin{proof}
+For any fixed natural number $m$:
+\begin{enumerate}
+\item $0+S(m)=S(m)+0=S(m+0)$
+\item Suppose that $n+S(m)=S(n+m)$, then 
+\begin{align*}
+S(n) + S(m) 
+&= S(n+S(m)) \tag{By Def.} \\
+&= S(S(n+m)) \tag{By assumption} \\
+&= S(S(n)+m) \tag{By Def.}
+\end{align*}
+\end{enumerate} 
+This closes the induction and the proof is over. \qedhere
+\end{proof}
+
+\begin{prop}
+The addition of natural numbers is commutative. That is,
+\[
+m + n = n + m
+\]
+\end{prop}
+\begin{proof}
+First of all, $0+n=n+0$.
+
+Then, assume that $m+n=n+m$. Thus:
+\begin{align*}
+S(m)+n
+&= S(m+n) \tag{By Def.}\\
+&= S(n+m) \tag{By Assumption}\\
+&= n+S(m) \tag{By Lemma \ref{lem2}}
+\end{align*}, which closes the induction. \qedhere
+\end{proof}
+
+\begin{prop}
+(Exercise 2.2.1) \label{exercise2.2.1}
+The addition of natural numbers is associative. That is, $(a+b)+c=a+(b+c)$.
+\end{prop}
+\begin{proof}
+Use induction: First, $(0+b)+c=b+c=0+(b+c)=b+c$.
+
+Then, assume that $(n+b)+c=n+(b+c)$, thus 
+\begin{align*}
+(S(n)+b)+(c)
+&= S(n+b)+c\\
+&= S(n+b+c)\\
+&= S(n+(b+c)) \tag{By assumption}\\
+&= S(n)+(b+c)
+\end{align*}
+, which closes the induction. \qedhere
+\end{proof}
+
+How fascinating! We have proven the basic properties of addition with only the definition of addition 
+and the axioms. It seemed that we have to define these properties, but we did prove them!
+
+Now we are about to prove some useful propositions about addition.
+
+\begin{prop}
+The cancellation law: If $a+b=a+c$, then $b=c$.
+\end{prop}
+\begin{proof}
+Use induction: $0+b=0+c \Rightarrow b=c$.
+
+Assume that $a+b=a+c \Rightarrow b=c$, thus 
+\begin{align*}
+S(a)+b &= S(a)+c \Rightarrow \\
+S(a+b) &= S(a+c) \Rightarrow \\
+S(b) &= S(c) \Rightarrow \\
+b &= c
+\end{align*}
+\end{proof}
+
+Then we describe natural numbers that are not equal to 0 as \textbf{positive}. 
+
+\begin{prop}
+If $a$ is positive, then for any natural number $b$, $a+b$ is positive. \label{prop1}
+\end{prop}
+\begin{proof}
+Use induction: $a+0=a$ is positive.
+
+Assume that $a+b$ is positive, then 
+\[
+a+S(b) = S(a+b)
+\]
+can not be 0, for 0 is not a successor of any natural number. This closes the induction. \qedhere
+\end{proof}
+
+\begin{coro}
+If for natural number $a,b$, $a+b=0$, then $a=0 \wedge b=0$ \label{coro1}
+\end{coro}
+\begin{proof}
+Presume the contradiction, that there exist $a \neq 0, b \neq 0$, $a+b=0$. 
+\[
+a \neq 0 \Rightarrow a \text{ is positive}
+\]
+Then according to proposition \ref{prop1}, $a+b$ is also positive, which can not be 0. \qedhere
+\end{proof}
+
+We may wonder something like is it true for every natural number $n \neq 0$, $n$ is always the 
+successor of some other natural number. That is, 0 is the only natural number that is not the successor 
+of any natural number. Or we can convey it in such a way as following: 
+\begin{prop}
+(Exercise 2.2.2) \label{exercise2.2.2}
+For any positive natural number $n$, there is exactly one natural number $m$ that $S(m) = n$. 
+\label{prop5}
+\end{prop} 
+
+\begin{proof}
+Use induction: When $n=0$, the statement is vacuously right.
+
+Assume that the statement is true for a natural number $n$, thus
+\begin{description}
+\item[Existence] 
+\[
+S(S(m)) = S(n)
+\]
+\item[Uniqueness]
+It is obvious according to axiom 3.
+\end{description}
+\end{proof}
+
+\begin{prop}
+For any natural number $n$, $S(n) \neq n$
+\end{prop}
+\begin{proof}
+Use induction: $S(0) \neq 0$ for 0 is not the successor of any natural number.
+
+Assume that $S(n) \neq n$. Suppose that $S(S(n)) = S(n)$, then by axiom 3, $n=S(n)$, then we have a 
+contradiction. This closes the induction. \qedhere
+\end{proof}
+
+\subsection{Order of Natural Numbers}
+Then I learned the order of natural numbers.
+
+Here I introduce one my own lemma:
+\begin{lem}
+$a=a+n \Leftrightarrow n=0$  \label{lem3}
+\end{lem}
+\begin{proof}
+On one hand, suppose that $a=a+n$ but $n \neq 0$. Try to prove the contradiction. Use induction:
+First, $n$ is positive, so $0+n \neq 0$.
+
+Assume that $n \neq 0 \Rightarrow a \neq a+n$, thus 
+\[
+S(a)+n=S(a+n) \neq S(a) \text{ by assumption}
+\], which closes the induction. Then by the axiom of induction, we have a contradiction, so 
+$a=a+n \Rightarrow n=0$.
+
+On the other hand, $n=0 \Rightarrow a+n=a$. \qedhere
+\end{proof}
+
+Hereby proposition 2.2.12 of Tao's book is proven.
+\begin{prop}
+(Exercise 2.2.3) \label{exercise2.2.3}
+\begin{enumerate}
+\item Order is reflective $a \geq a$
+\item Order is transitive $a \geq b \wedge b \geq c \Rightarrow a \geq c$
+\item Order is anti-symmetric $a \geq b \wedge b \geq a \Rightarrow a=b$
+\item Addition preserves order $a \geq b \Rightarrow a+c \geq b+c$
+\item $a<b \Leftrightarrow S(a) \leq b$
+\item $a<b$ Iff for positive natural number $c$, $b=a+c$
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(1) It is immediately proven by $a=a+0$.
+
+(2) 
+\begin{align*}
+a \geq b &\wedge b \geq c \Rightarrow \\
+a = b+m &\wedge b = c+n \Rightarrow \\
+a = c+n+m &= c+(n+m) \Rightarrow \\
+a &\geq c 
+\end{align*}
+
+(3)
+By definition of order, 
+\begin{align*}
+a \geq b &\wedge b \geq a \Rightarrow \\
+a = b+m &\wedge b = a+n \Rightarrow \\
+a &= a+(n+m) \Rightarrow \\
+n+m&=0 \Rightarrow \tag{By Lemma \ref{lem3}}\\
+n=m&=0 \Rightarrow \tag{By Corollary \ref{coro1}} \\
+b=a+0&=a
+\end{align*}
+
+(4)
+\begin{align*}
+a \geq b &\Rightarrow \\
+a = b+n &\Rightarrow \\
+a+c=(b+n)+c=b+(n+c)=b+(c+n)=(b+c)+n &\Rightarrow \\
+a+c \geq b+c
+\end{align*}
+
+(5)
+\begin{align*}
+a<b &\Leftrightarrow \\
+b=a+p &\Leftrightarrow \\
+b+1=a+p+1=a+1+p=S(a)+p \\
+=S(a)+S(n) \tag{By proposition \ref{prop5}, $p$ is always some natural number $n$'s successor}\\
+=S(a)+n+1 &\Leftrightarrow \\
+b=S(a)+n &\Leftrightarrow \tag{By cancellation law} \\
+b \geq S(a)
+\end{align*} \label{prop.5}
+
+(6)
+On one hand, $b=a+c$ immediately gives $a<b$.
+
+On the other hand, according to (5), $a<b$ gives 
+\begin{align*}
+S(a) \leq b  &\Rightarrow\\
+b = S(a) + n& \\
+= a+1+n = a+(n+1)&
+\end{align*}, where $n+1$ is positive. \label{prop.6}
+\end{proof}
+
+\begin{prop}
+(Exercise 2.2.4) \label{exercise2.2.4}
+For two natural number $m,n$, $m$ either $>$, or $=$, or $<n$.
+\end{prop}
+\begin{proof}
+Tao's book has proven that at most one statement can be true at a time.
+
+Now we are proving the remnant. Use induction: When $m=0$, for any natural number $n$, 
+$0=n$, or $0 \neq n$. Under the latter case:
+\begin{lem}
+$n$ is positive $\Leftrightarrow n>0$
+\end{lem}
+\begin{proof}
+On one hand, $n>0$ immediately gives $n$ is positive.
+
+On the other hand, $n=0+n$ gives $n \geq 0$. And $n$ being positive implies that $n \neq 0$. 
+So $n > 0$.
+\end{proof}
+
+According to the lemma, in this situation, $0<n$. So 0 either $<$ or $=$ $n$.
+
+Assume that we have proven the statement for a natural number $m$, thus when $m<n$, according to 
+Proposition \ref{prop.5}, $S(m) \leq n$, so $S(m)$ either $<$ or $=n$. When $m=n$, 
+$S(m)=n+1 \Rightarrow S(m) > n$ by Proposition \ref{prop.6}. When $m>n$, according to Proposition 
+\ref{prop.6}, 
+\[
+m=n+p \Rightarrow S(m)=n+(p+1) \Rightarrow S(m)>n
+\]. This closes the induction, implying that at least one of the three statements is true.
+\end{proof}
+
+\paragraph{Exercise 2.2.5} \label{exercise2.2.5}
+\begin{proof}
+Let $Q(n)$ be a property of a natural number $n$ such that $Q(n)$ is true iff for all $m_0\leq m'<n$, 
+$P(m')$ is always true. Use induction: $Q(0)$ is vacuously true.
+
+Assume that $Q(n)$ is true. Here we will be using the proposition we just proved, for because we have 
+known that there will and only will be one true statement, we can classify the conditions as 
+following: When $S(n)<m_0$, $Q(S(n))$ is also vacuously true. When $S(n)=m_0$, $Q(S(n))$ is true 
+because $P(m_0)$ is true. And when $S(n)>m_0$:
+
+First we need to prove that $n$ is the only natural number $\geq m_0$ which satisfies $m_0 \leq n<S(n)$ 
+but doesn't satisfy $m_0 \leq n<n$, so that we only need to prove $P(n)$ is true in the induction, 
+which is obvious.
+\begin{lem}
+There is no natural number between $n$ and $S(n)$. That is, there is no such natural number $m$ that 
+$n<m<S(n)$. \label{lem5}
+\end{lem}
+\begin{proof}
+Presume the contradiction. Thus, $m=n+p \wedge S(n)=m+q$, where $p,q$ are positive. Substituting $m$ 
+with $n+p$ we have $S(n)=n+p+q$. Let $p=S(a)=a+1$, which is always possible according to Proposition 
+\ref{prop5}. Thus $n+1=n+1+a+q \Rightarrow n=n+a+q$, which means $a+q$ has to be 0, and which is 
+impossible.
+\end{proof}
+
+Given a natural number $a$, it either $\geq$ or $<S(n)$, and also either $\geq$ or $<n$. Should it 
+satisfy $m_0 \leq a<S(n)$ but doesn't satisfy $m_0 \leq a<n$, it then must satisfy $n \leq a<S(n)$, 
+that is, either $a=n$ or $n<a<S(n)$. The latter, according to the lemma, is impossible. So $n$ is the 
+only natural number $\geq m_0$ which satisfies $m_0 \leq n<S(n)$ but doesn't satisfy $m_0 \leq n<n$.
+
+Then $Q(S(n)) \Leftrightarrow Q(n) \wedge P(n)$, which is true. This closes the induction. So $Q(n)$ is 
+true for all natural number $n \geq m_0$. And this implies that $P(n)$ is true.
+\end{proof}
+
+\paragraph{Exercise 2.2.6} \label{exercise2.2.6}
+\begin{proof}
+Use induction: When $n=0$, for all natural number $m\leq 0$, $P(m)$ is true.
+
+Assume that we have proven for a natural number $n$ that if $P(n)$ is true, then for all natural number 
+$m\leq n$, $P(m)$ is also true. Thus, $P(S(n)) \Rightarrow P(n) \Rightarrow \forall m\leq n, P(m)$
+is true. According to Lemma \ref{lem5}, 
+$(\forall m\leq n, P(m)) \wedge P(S(n)) \Leftrightarrow \forall m \leq S(n), P(m)$. This closes the 
+induction.
+\end{proof}
+
+\subsection{Multiplication of Natural Numbers}
+\begin{lem}
+(Exercise 2.3.1) \label{exercise2.3.1}
+Multiplication is commutative. That is, $a \times b = b \times a$.
+\end{lem}
+\begin{proof} I
+
+Try to imitate the way we prove the commutativity of addition.
+
+\begin{lem}
+\[
+0 \times a = a \times 0 \label{lem2.3.1}
+\]
+\end{lem}
+\begin{proof}
+Use induction: $0 \times 0 = 0$. Assume that $n \times 0 = 0$ is 
+true. Thus, $S(n) \times 0 = (n \times 0) + 0 = 0$, which closes the induction.
+\end{proof}
+
+\begin{lem}
+\[
+a \times S(b) = a \times b + a \label{lem2.3.2}
+\]
+\end{lem}
+\begin{proof}
+Use induction: $0 \times S(b) = 0 = 0 \times b + 0$.
+
+Assume that $a \times S(b) = ab + a$ is true. Thus, 
+\begin{align*}
+S(a)S(b) 
+&= aS(b) + S(b) \tag{By Def.}\\
+&= ab + a + S(b) \tag{By assumption}\\
+&= ab+S(a)+b \tag{By addition's properties}\\
+&= (ab+b)+S(a) \tag{By addition's properties}\\
+&= S(a)b + S(a) \tag{By Def.}
+\end{align*}, which closes the induction.
+\end{proof}
+
+Now use induction on $a$. First, when $a=0$, by Lemma \ref{lem2.3.1} we have $ab=ba$. 
+
+Assume that $ab=ba$ is true. Thus,
+\begin{align*}
+S(a)b
+&=ab+b \\
+&=ba+b  \\
+&=bS(a) \tag{Lemma \ref{lem2.3.2}}
+\end{align*}, which close the induction.
+
+\end{proof}
+
+\begin{proof} II In this proof we will use the distribution law of multiplication.
+
+First, we have Lemma \ref{lem2.3.1}
+
+Before we prove the remnant, we need to prove the distribution law. That 
+is, $a \times (b+c) = ab + ac$ \label{distriLaw}
+\begin{proof}
+Use induction: $0 \times (b+c)= 0\times b+0\times c=0$.
+
+Assume that $a \times (b+c) = ab + ac$ is ture. Thus, 
+\begin{align*}
+S(a) \times (b+c)
+&= (a(b+c))+(b+c) \\
+&= (ab+ac)+(b+c) \tag{By assumption} \\
+&= (ab)+b+(ac)+c \\
+&= S(a)b+S(a)c
+\end{align*}, which closes the induction.
+\end{proof}
+
+We still have to prove $n \times 1 = n$ before proceeding. Use induction: $0 \times 1 = 0$. Assume that 
+$n \times 1 = n$. Thus, $S(n) \times 1 = (n\times 1)+1=n+1=S(n)$.
+
+Now we can proceed the proof. Assume that $a \times b = b \times a$. Thus, 
+\begin{align*}
+S(a)b
+&= (ab)+b \\
+&= (ba)+b \tag{By assumption} \\
+&= b(a+1) \tag{By $b\times 1=b$ and the distribution law}\\
+&= b \times S(a)
+\end{align*}. This closes the induction.
+\end{proof}
+
+\begin{lem} \label{lem2.3.3}
+(Exercise 2.3.2) \label{exercise2.3.2}
+\[mn \neq 0 \Leftrightarrow m \neq 0 \wedge n \neq 0\]
+\end{lem}
+
+\begin{proof}
+On one hand,
+let $m=S(a),\ n=S(b)$, where $a,b$ are natural numbers.
+\begin{align*}
+mn 
+&= S(a)S(b) \\
+&= aS(b) + S(b)
+\end{align*}
+
+which, if $a \neq 0$, is the sum of two positive numbers, and is thus positive, and which, if $a = 0$,
+is a positive number $S(b)$.
+
+On the other hand, if either of $m,n$ is 0, then $mn$ must be zero. So $mn \neq 0 \Rightarrow m \neq 0 
+\wedge n \neq 0$.
+\end{proof}
+
+Distribution law has been proved \hyperref[distriLaw]{here}.
+
+\begin{prop}
+(Exercise 2.3.3) \label{exercise2.3.3}
+\[
+(ab)c = a(bc)
+\]
+\end{prop}
+\begin{proof}
+Use induction on $a$.
+First, $(0b)c=0c=0=0(bc)$.
+
+Assume that $(ab)c = a(bc)$ is true. Thus, 
+\begin{align*}
+(S(a)b)c
+&= (ab+b)c \\
+&= c(ab+b) \tag{Commutativity} \\
+&= c(ab) + cb \tag{Distribution law} \\
+&= (ab)c + bc \tag{Commutativity} \\
+&= a(bc) + bc \tag{The induction hypothesis} \\
+&= S(a)(bc)
+\end{align*}. And now we can close the induction.
+\end{proof}
+
+\begin{prop}
+\label{prop2.3.1}
+Multiplication preserves order. That is, if $a>b \wedge c>0$, then $ac > bc$.
+\end{prop}
+\begin{proof}
+\begin{align*}
+a>b 
+&\Rightarrow \\ a = b + p 
+&\Rightarrow \\ ac = bc + pc
+\end{align*}
+According to Lemma \ref{lem2.3.3}, $pc$ is positive. Therefore, $ac>bc$.
+\end{proof}
+
+\begin{coro}
+Cancellation law. 
+\[
+ac=bc \wedge c \neq 0 \Rightarrow a=b
+\]
+\end{coro}
+\begin{proof}
+Either $a=b$, or $a<b$, or $a>b$. Suppose that $a \neq b$. Therefore, $ac$ either $<$ or $>bc$, which, 
+according to Proposition \ref{prop2.3.1}, gives a contradiction. So $a=b$.
+\end{proof}
+
+\begin{prop}
+(Exercise 2.3.4) \label{exercise2.3.4}
+\[
+(a+b)^2=a^2+2ab+b^2
+\]
+(Suppose that we have known $n^2=n \times n$)
+\end{prop}
+\begin{proof}
+\begin{align*}
+(a+b)(a+b) 
+&= (a+b)a+(a+b)b \tag{Distribution law} \\
+&= a(a+b) + b(a+b) \tag{Commutativity} \\
+&= a^2+ab+ba+b^2 \tag{Distribution law} \\
+&= a^2+ab+ab+b^2 \tag{Commutativity}
+\end{align*}
+
+Now we prove that $2ab = ab+ab$.
+\begin{align*}
+2ab
+&=S(1)ab \\
+&=(1ab)+ab\\
+&=(S(0)ab)+ab\\
+&=(0ab+ab)+ab\\
+&=ab+ab
+\end{align*}
+
+The proof is over. \qedhere
+\end{proof}
+
+\begin{prop}
+(Exercise 2.3.5) \label{exercise2.3.5}
+Euclidean algorithm. For any natural number $n$, positive number $p$, there exist natural numbers $m,r$ 
+such that $n=mp+r$.
+\end{prop}
+\begin{proof}
+For any natural number $p$, we induct on $n$. Firstly, $0=0p+0$. 
+
+Assume that the statement for $n$ is true. We know that $r<p$. Then $S(r)$ either $=$ or $<p$ 
+(Proposition \ref{prop.5}). On the latter case, simply let $r'=S(r),\ m'=m$, which satisfies the 
+restriction $0\leq r' <p$ 
+
+On the former case, let $m'=S(m),\ r'=0$, and we have
+\begin{align*}
+m'p+r'
+&= S(m)p+0\\
+&= mp + p\\
+&= mp + S(r) \tag{$p=S(r)$}\\
+&= S(mp+r)\\
+&= S(m) \qedhere
+\end{align*}
+\end{proof}
