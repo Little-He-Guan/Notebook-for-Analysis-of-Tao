@@ -151,13 +151,13 @@ Now we are about to prove some useful propositions about addition.
 The cancellation law: If $a+b=a+c$, then $b=c$.
 \end{prop}
 \begin{proof}
-Use induction: $0+b=0+c \Rightarrow b=c$.
+Use induction: $0+b=0+c \Longrightarrow b=c$.
 
-Assume that $a+b=a+c \Rightarrow b=c$, thus 
+Assume that $a+b=a+c \Longrightarrow b=c$, thus 
 \begin{align*}
-S(a)+b &= S(a)+c \Rightarrow \\
-S(a+b) &= S(a+c) \Rightarrow \\
-S(b) &= S(c) \Rightarrow \\
+S(a)+b &= S(a)+c \Longrightarrow \\
+S(a+b) &= S(a+c) \Longrightarrow \\
+S(b) &= S(c) \Longrightarrow \\
 b &= c
 \end{align*}
 \end{proof}
@@ -183,7 +183,7 @@ If for natural number $a,b$, $a+b=0$, then $a=0 \wedge b=0$ \label{coro1}
 \begin{proof}
 Presume the contradiction, that there exist $a \neq 0, b \neq 0$, $a+b=0$. 
 \[
-a \neq 0 \Rightarrow a \text{ is positive}
+a \neq 0 \Longrightarrow a \text{ is positive}
 \]
 Then according to proposition \ref{prop1}, $a+b$ is also positive, which can not be 0. \qedhere
 \end{proof}
@@ -226,19 +226,19 @@ Then I learned the order of natural numbers.
 
 Here I introduce one my own lemma:
 \begin{lem}
-$a=a+n \Leftrightarrow n=0$  \label{lem3}
+$a=a+n \Longleftrightarrow n=0$  \label{lem3}
 \end{lem}
 \begin{proof}
 On one hand, suppose that $a=a+n$ but $n \neq 0$. Try to prove the contradiction. Use induction:
 First, $n$ is positive, so $0+n \neq 0$.
 
-Assume that $n \neq 0 \Rightarrow a \neq a+n$, thus 
+Assume that $n \neq 0 \Longrightarrow a \neq a+n$, thus 
 \[
 S(a)+n=S(a+n) \neq S(a) \text{ by assumption}
 \], which closes the induction. Then by the axiom of induction, we have a contradiction, so 
-$a=a+n \Rightarrow n=0$.
+$a=a+n \Longrightarrow n=0$.
 
-On the other hand, $n=0 \Rightarrow a+n=a$. \qedhere
+On the other hand, $n=0 \Longrightarrow a+n=a$. \qedhere
 \end{proof}
 
 Hereby proposition 2.2.12 of Tao's book is proven.
@@ -246,10 +246,10 @@ Hereby proposition 2.2.12 of Tao's book is proven.
 (Exercise 2.2.3) \label{exercise2.2.3}
 \begin{enumerate}
 \item Order is reflective $a \geq a$
-\item Order is transitive $a \geq b \wedge b \geq c \Rightarrow a \geq c$
-\item Order is anti-symmetric $a \geq b \wedge b \geq a \Rightarrow a=b$
-\item Addition preserves order $a \geq b \Rightarrow a+c \geq b+c$
-\item $a<b \Leftrightarrow S(a) \leq b$
+\item Order is transitive $a \geq b \wedge b \geq c \Longrightarrow a \geq c$
+\item Order is anti-symmetric $a \geq b \wedge b \geq a \Longrightarrow a=b$
+\item Addition preserves order $a \geq b \Longrightarrow a+c \geq b+c$
+\item $a<b \Longleftrightarrow S(a) \leq b$
 \item $a<b$ Iff for positive natural number $c$, $b=a+c$
 \end{enumerate}
 \end{prop}
@@ -258,39 +258,39 @@ Hereby proposition 2.2.12 of Tao's book is proven.
 
 (2) 
 \begin{align*}
-a \geq b &\wedge b \geq c \Rightarrow \\
-a = b+m &\wedge b = c+n \Rightarrow \\
-a = c+n+m &= c+(n+m) \Rightarrow \\
+a \geq b &\wedge b \geq c \Longrightarrow \\
+a = b+m &\wedge b = c+n \Longrightarrow \\
+a = c+n+m &= c+(n+m) \Longrightarrow \\
 a &\geq c 
 \end{align*}
 
 (3)
 By definition of order, 
 \begin{align*}
-a \geq b &\wedge b \geq a \Rightarrow \\
-a = b+m &\wedge b = a+n \Rightarrow \\
-a &= a+(n+m) \Rightarrow \\
-n+m&=0 \Rightarrow \tag{By Lemma \ref{lem3}}\\
-n=m&=0 \Rightarrow \tag{By Corollary \ref{coro1}} \\
+a \geq b &\wedge b \geq a \Longrightarrow \\
+a = b+m &\wedge b = a+n \Longrightarrow \\
+a &= a+(n+m) \Longrightarrow \\
+n+m&=0 \Longrightarrow \tag{By Lemma \ref{lem3}}\\
+n=m&=0 \Longrightarrow \tag{By Corollary \ref{coro1}} \\
 b=a+0&=a
 \end{align*}
 
 (4)
 \begin{align*}
-a \geq b &\Rightarrow \\
-a = b+n &\Rightarrow \\
-a+c=(b+n)+c=b+(n+c)=b+(c+n)=(b+c)+n &\Rightarrow \\
+a \geq b &\Longrightarrow \\
+a = b+n &\Longrightarrow \\
+a+c=(b+n)+c=b+(n+c)=b+(c+n)=(b+c)+n &\Longrightarrow \\
 a+c \geq b+c
 \end{align*}
 
 (5)
 \begin{align*}
-a<b &\Leftrightarrow \\
-b=a+p &\Leftrightarrow \\
+a<b &\Longleftrightarrow \\
+b=a+p &\Longleftrightarrow \\
 b+1=a+p+1=a+1+p=S(a)+p \\
 =S(a)+S(n) \tag{By proposition \ref{prop5}, $p$ is always some natural number $n$'s successor}\\
-=S(a)+n+1 &\Leftrightarrow \\
-b=S(a)+n &\Leftrightarrow \tag{By cancellation law} \\
+=S(a)+n+1 &\Longleftrightarrow \\
+b=S(a)+n &\Longleftrightarrow \tag{By cancellation law} \\
 b \geq S(a)
 \end{align*} \label{prop.5}
 
@@ -299,7 +299,7 @@ On one hand, $b=a+c$ immediately gives $a<b$.
 
 On the other hand, according to (5), $a<b$ gives 
 \begin{align*}
-S(a) \leq b  &\Rightarrow\\
+S(a) \leq b  &\Longrightarrow\\
 b = S(a) + n& \\
 = a+1+n = a+(n+1)&
 \end{align*}, where $n+1$ is positive. \label{prop.6}
@@ -315,7 +315,7 @@ Tao's book has proven that at most one statement can be true at a time.
 Now we are proving the remnant. Use induction: When $m=0$, for any natural number $n$, 
 $0=n$, or $0 \neq n$. Under the latter case:
 \begin{lem}
-$n$ is positive $\Leftrightarrow n>0$
+$n$ is positive $\Longleftrightarrow n>0$
 \end{lem}
 \begin{proof}
 On one hand, $n>0$ immediately gives $n$ is positive.
@@ -328,10 +328,10 @@ According to the lemma, in this situation, $0<n$. So 0 either $<$ or $=$ $n$.
 
 Assume that we have proven the statement for a natural number $m$, thus when $m<n$, according to 
 Proposition \ref{prop.5}, $S(m) \leq n$, so $S(m)$ either $<$ or $=n$. When $m=n$, 
-$S(m)=n+1 \Rightarrow S(m) > n$ by Proposition \ref{prop.6}. When $m>n$, according to Proposition 
+$S(m)=n+1 \Longrightarrow S(m) > n$ by Proposition \ref{prop.6}. When $m>n$, according to Proposition 
 \ref{prop.6}, 
 \[
-m=n+p \Rightarrow S(m)=n+(p+1) \Rightarrow S(m)>n
+m=n+p \Longrightarrow S(m)=n+(p+1) \Longrightarrow S(m)>n
 \]. This closes the induction, implying that at least one of the three statements is true.
 \end{proof}
 
@@ -355,7 +355,7 @@ $n<m<S(n)$. \label{lem5}
 \begin{proof}
 Presume the contradiction. Thus, $m=n+p \wedge S(n)=m+q$, where $p,q$ are positive. Substituting $m$ 
 with $n+p$ we have $S(n)=n+p+q$. Let $p=S(a)=a+1$, which is always possible according to Proposition 
-\ref{prop5}. Thus $n+1=n+1+a+q \Rightarrow n=n+a+q$, which means $a+q$ has to be 0, and which is 
+\ref{prop5}. Thus $n+1=n+1+a+q \Longrightarrow n=n+a+q$, which means $a+q$ has to be 0, and which is 
 impossible.
 \end{proof}
 
@@ -364,7 +364,7 @@ satisfy $m_0 \leq a<S(n)$ but doesn't satisfy $m_0 \leq a<n$, it then must satis
 that is, either $a=n$ or $n<a<S(n)$. The latter, according to the lemma, is impossible. So $n$ is the 
 only natural number $\geq m_0$ which satisfies $m_0 \leq n<S(n)$ but doesn't satisfy $m_0 \leq n<n$.
 
-Then $Q(S(n)) \Leftrightarrow Q(n) \wedge P(n)$, which is true. This closes the induction. So $Q(n)$ is 
+Then $Q(S(n)) \Longleftrightarrow Q(n) \wedge P(n)$, which is true. This closes the induction. So $Q(n)$ is 
 true for all natural number $n \geq m_0$. And this implies that $P(n)$ is true.
 \end{proof}
 
@@ -373,9 +373,9 @@ true for all natural number $n \geq m_0$. And this implies that $P(n)$ is true.
 Use induction: When $n=0$, for all natural number $m\leq 0$, $P(m)$ is true.
 
 Assume that we have proven for a natural number $n$ that if $P(n)$ is true, then for all natural number 
-$m\leq n$, $P(m)$ is also true. Thus, $P(S(n)) \Rightarrow P(n) \Rightarrow \forall m\leq n, P(m)$
+$m\leq n$, $P(m)$ is also true. Thus, $P(S(n)) \Longrightarrow P(n) \Longrightarrow \forall m\leq n, P(m)$
 is true. According to Lemma \ref{lem5}, 
-$(\forall m\leq n, P(m)) \wedge P(S(n)) \Leftrightarrow \forall m \leq S(n), P(m)$. This closes the 
+$(\forall m\leq n, P(m)) \wedge P(S(n)) \Longleftrightarrow \forall m \leq S(n), P(m)$. This closes the 
 induction.
 \end{proof}
 
@@ -463,7 +463,7 @@ S(a)b
 
 \begin{lem} \label{lem2.3.3}
 (Exercise 2.3.2) \label{exercise2.3.2}
-\[mn \neq 0 \Leftrightarrow m \neq 0 \wedge n \neq 0\]
+\[mn \neq 0 \Longleftrightarrow m \neq 0 \wedge n \neq 0\]
 \end{lem}
 
 \begin{proof}
@@ -478,7 +478,7 @@ mn
 which, if $a \neq 0$, is the sum of two positive numbers, and is thus positive, and which, if $a = 0$,
 is a positive number $S(b)$.
 
-On the other hand, if either of $m,n$ is 0, then $mn$ must be zero. So $mn \neq 0 \Rightarrow m \neq 0 
+On the other hand, if either of $m,n$ is 0, then $mn$ must be zero. So $mn \neq 0 \Longrightarrow m \neq 0 
 \wedge n \neq 0$.
 \end{proof}
 
@@ -513,8 +513,8 @@ Multiplication preserves order. That is, if $a>b \wedge c>0$, then $ac > bc$.
 \begin{proof}
 \begin{align*}
 a>b 
-&\Rightarrow \\ a = b + p 
-&\Rightarrow \\ ac = bc + pc
+&\Longrightarrow \\ a = b + p 
+&\Longrightarrow \\ ac = bc + pc
 \end{align*}
 According to Lemma \ref{lem2.3.3}, $pc$ is positive. Therefore, $ac>bc$.
 \end{proof}
@@ -522,7 +522,7 @@ According to Lemma \ref{lem2.3.3}, $pc$ is positive. Therefore, $ac>bc$.
 \begin{coro}
 Cancellation law. 
 \[
-ac=bc \wedge c \neq 0 \Rightarrow a=b
+ac=bc \wedge c \neq 0 \Longrightarrow a=b
 \]
 \end{coro}
 \begin{proof}
@@ -578,6 +578,7 @@ m'p+r'
 &= mp + p\\
 &= mp + S(r) \tag{$p=S(r)$}\\
 &= S(mp+r)\\
-&= S(m) \qedhere
-\end{align*}
+&= S(n)
+\end{align*}.
+And now we can close the induction.
 \end{proof}

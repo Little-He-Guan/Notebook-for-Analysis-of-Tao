@@ -1,0 +1,66 @@
+\part{Mathematical Logic}
+
+\section{Mathematical Statements}
+
+\paragraph{Exercise A.1.1}
+\label{exercisea.1.1}
+It is ( (both $X, Y$ are false) or (both $X, Y$ are true) ).
+
+\paragraph{Exercise A.1.2}
+\label{exercisea.1.2}
+It is ( ($Y$ can be true even if $X$ is false) or ($Y$ can be false even if $X$ is true) ).
+
+\paragraph{Exercise A.1.3}
+\label{exercisea.1.3}
+Yes. That's the definition of logical equivalent.
+
+\paragraph{Exercise A.1.4}
+\label{exercisea.1.4}
+No. It is still possible that (even if $X$ is false, $Y$ is still true).
+
+Consider a statement $Y$ that satisfies:
+\begin{enumerate}
+\item If $X$, then $Y$.
+\item If $X$ is false, then $Y$ or (exclusively) $Y$ is false.
+\end{enumerate}
+
+$X,Y$ satisfy the description in the exercise, but they are not logical equivalent.
+
+\paragraph{Exercise A.1.5}
+\label{exercisea.1.5}
+Yes. (Now I'm using the symbols defined in the A.2 for the sake of simplification)
+$X \Longleftrightarrow Y$ means $X \Longrightarrow Y \wedge \neg X \Longrightarrow \neg Y$. So does $Y$ and 
+$Z$. So 
+\begin{align*}
+(X \Longrightarrow Y \Longrightarrow Z \wedge \neg X \Longrightarrow \neg Y \Longrightarrow \neg Z)
+&\Longrightarrow \\
+(X \Longrightarrow Z \wedge \neg X \Longrightarrow \neg Z)
+\end{align*}
+, which means $X$ and $Z$ are logical equivalent.
+
+(Note that $A \Longrightarrow B$ can also be interpreted as a statement, meaning ``If $A$ is true, then $B$ 
+is true'', just like we did in this example.)
+
+\paragraph{Exercise A.1.6}
+\label{exercisea.1.6}
+Yes. $(X \Longrightarrow Y \Longrightarrow Z) \Longrightarrow (X \Longrightarrow Z)$. 
+
+Now we are proving that 
+$Z \Longrightarrow X \equiv \neg X \Longrightarrow \neg Z$. Assume that $\neg X \wedge Z$. Since 
+$Z \Longrightarrow X$, we have a contradiction: $X \wedge \neg X$.
+
+So $X \Longrightarrow Z \wedge \neg X \Longrightarrow \neg Z$. Therefore, $X,Z$ are logical equivalent. 
+Besides, we can conclude that $Y \Longrightarrow X$. Thus $X,Y$ are also logical equivalent.
+
+\section{Implication}
+Why did Tao say
+\begin{quotation}
+If $X$, then $Y$ can also be written as ``$X$ can only be true when $Y$ is true''
+\end{quotation}?
+
+Assume the $X \wedge \neg Y$, thus $X \Longrightarrow Y$. So we have a contradiction 
+$Y \wedge \neg Y$.
+
+Define ``when $x \neq 2$, $X:x=2 \Longrightarrow x^2=4$ is vacuously true'' to ensure that $X$ is always 
+true regardless of the value of $x$.
+
