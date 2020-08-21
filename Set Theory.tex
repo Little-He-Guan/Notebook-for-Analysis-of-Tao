@@ -1,1 +1,413 @@
 \part{Set Theory}
+
+\section{Fundamentals}
+\paragraph{Exercise 3.1.1} \label{exercise3.1.1}
+\begin{proof}
+Reflexive: $\forall x \in S, x \in S$.
+
+Symmetric: 
+\begin{align*}
+X = Y
+&\Longleftrightarrow \\
+\forall x \in X, x \in Y \wedge \forall x \in Y, x \in X
+&\Longleftrightarrow \\
+Y = X
+\end{align*}
+
+Transitive:
+$X=Y \Longrightarrow \forall x \in X, x \in Y$. Because $x \in Y$ and $Y = Z$, we can conclude that 
+$\forall x \in X, x \in Z$. Conduct the process from inversely, we can get $\forall x \in Z, x \in X$. 
+Therefore, $X=Z$.
+\end{proof}
+
+The reason for the content beneath Axiom 3.2 is clearly demonstrated in the proof of Lemma 3.1.6.
+
+In Remarks 3.1.9, there are three ``Why''s. The reason can be concluded as: Because of the ``if and only 
+if'' in Axiom 3.3, or more precisely, ``only if'', if $x$ is a element in one of such sets, $x$ must 
+$=a$ or $b$. And because of the ``if'', $x$ is thus in another set. So the two sets are equal according 
+to Definition 3.1.4.
+
+\paragraph{Exercise 3.1.2} \label{exercise3.1.2}
+\begin{proof}
+According to Axiom 3.2, $\varnothing$ exists, and is thus an object as stated by Axiom 3.1. Therefore, 
+by Axiom 3.3, $\{\varnothing\}$ also exists. $\varnothing$ is an element of $\{\varnothing\}$, but it 
+is not an element of $\varnothing$ because any object $\notin$ $\varnothing$.
+
+For the same reason, any set that contains element(s) is not the same set as $\varnothing$. Furthermore, 
+there exists an object $\{\varnothing\}$ (Axiom 3.3 and 3.1), which is an element of 
+$\{\varnothing, \{\varnothing\}\}$, but which is not an element of $\{\varnothing\}$. So the two sets 
+are not equal.
+\end{proof}
+
+\paragraph{Remarks 3.1.12}
+\begin{proof}
+Let $x \in A'\cup B$. $x \in A' \Longrightarrow x \in A$ And if $x \notin A'$, $x \in B$. So either way 
+$x \in A\cup B$ and vice versa.
+\end{proof}
+
+\paragraph{Exercise 3.1.3} \label{exercise3.1.3}
+\begin{proof}
+(1)
+\[
+x \in A \cup B \equiv (x \in A \vee x \in B)
+\]
+\[
+x \in A \Longrightarrow x \in B \cup A
+\]
+\[
+x \in B \Longrightarrow x \in B \cup A
+\]
+So $x \in A \cup B \Longrightarrow x \in B \cup A$. And vice versa.
+
+(2)
+$x \in A \Rightarrow x \in A \cup A$ and $x \in A \cup A \Rightarrow x \in A$.
+
+(3)
+\begin{align*}
+x \in A \cup \varnothing 
+&\Longrightarrow \\
+x \in A \vee x \in \varnothing
+&\Longrightarrow \\
+x \in A \tag{$\forall a, a \notin \varnothing$}
+\end{align*}
+
+And obviously $x \in A \Rightarrow x \in A \cup \varnothing$. So $A \cup \varnothing = A$.
+
+By transitivity of equality, and commutativity of pairwise union, we can conclude the others.
+\end{proof}
+
+\paragraph{Examples 3.1.17}
+\begin{proof}
+\[
+\forall x(x\in A \Longrightarrow x \in A)
+\]
+
+And
+\[
+\forall x(x \in \varnothing \Longrightarrow x \in A)
+\]
+is vacuously true.
+\end{proof}
+
+\paragraph{Exercise 3.1.4} \label{exercise3.1.4}
+\begin{proof}
+(1) 
+On one hand,
+\[
+A \subseteq B \equiv \forall x(x \in A \Longrightarrow x \in B)
+\]. 
+On the other hand,
+\[
+B \subseteq A \equiv \forall x(x \in B \Longrightarrow x \in A)
+\].
+Thus $A=B$.
+
+(2)
+First, we prove that $A \subsetneq B \Longrightarrow \exists x(x \in B \wedge x \notin A)$. Suppose the 
+contradiction, that is, $\forall x(x\in B \Longrightarrow x \in A)$, which is impossible since 
+$(A \subseteq B \equiv \forall x(x\in A \Longrightarrow x \in B))\wedge A \neq B$.
+
+According to what's proven in the book, 
+$A \subsetneq B \wedge B \subsetneq C \Longrightarrow A \subseteq C$.
+
+Now we prove that $\exists x(x \in C \wedge x \notin A)$. Since $x \in A \Longrightarrow x \in B$, 
+$x \notin B \Longrightarrow x \notin A$. Because $B \subsetneq C$, 
+$\exists x(x \in C \wedge x \notin B)$, and thus for such $x$, $ x \notin A$. Then $A \neq C$.
+
+So $A \subsetneq C$. 
+\end{proof}
+
+\paragraph{Axiom 3.5}
+(1) Because $x \in \{x \in A : P(x)\} \Rightarrow x \in A$.
+
+(2) Because both $\in$ and $P(x)$ obey the axiom of substitution.
+
+\paragraph{Exercise 3.1.5} \label{exercise3.1.5}
+\begin{proof}
+First we prove that $A \subseteq B \equiv A \cup B = B$. On one hand,
+\begin{align*}
+A \subseteq B 
+&\equiv \\
+\forall x(x \in A \Longrightarrow x \in B)
+&\Longrightarrow \\
+\forall x((x \in A \vee x \in B) \Longrightarrow x \in B)
+&\equiv \\
+A \cup B = B
+\end{align*}.
+
+On the other hand,
+\[
+\forall x((x \in A \vee x \in B) \Longrightarrow x \in B) \Longrightarrow
+\forall x(x \in A \Longrightarrow x \in B)
+\]. The statement is therefore proven.
+
+Then we prove that $A \subseteq B \equiv A \cap B = A$. On one hand, 
+\begin{align*}
+(A \cap B = A \equiv \forall x(x \in A \wedge x \in B \equiv x \in A)) 
+&\Longrightarrow \\
+(\forall x(x \in A \Rightarrow x \in B) \equiv (A \subseteq B))
+\end{align*}.
+
+On the other hand, 
+\[
+\forall x(x\in A\wedge x \in B \Longrightarrow x \in A)
+\]
+is always true (Vacuously true if $x \notin B$).
+
+Logical equality is transitive, and thus all of the three statements are equal.
+\end{proof}
+
+\paragraph{Proposition 3.1.28} (Exercise 3.1.6) \label{exercise3.1.6}
+\begin{proof}
+(a) The two are identical to 
+\[
+\forall x(x \in A \vee x \in \varnothing \equiv x \in A)
+\], 
+and 
+\[
+\nexists x(x \in A \wedge x \in \varnothing)
+\], 
+which are all true since $\forall x(x \notin \varnothing)$.
+
+(b) We have $A \subseteq X$. According to what we have proven in 
+\hyperref[exercise3.1.5]{Exercise 3.1.5}, the two statements are all true.
+
+(c) Obvious since 
+\[
+\forall x(x \in A \vee x \in A \equiv x \in A)
+\]
+and 
+\[
+\forall x(x \in A \wedge x \in A \equiv x \in A)
+\]
+
+(d) All true since \emph{logical or} and \emph{logical and} are commutative.
+
+(e) See Lemma 3.1.13. I believe that this can be concluded by the fact that \emph{logical or} and 
+\emph{logical and} are also associative.
+
+(f) 
+First we prove the latter. On one hand, suppose 
+\[
+x \in A \cup (B \cap C)
+\] is ture.
+
+If $x \in A$, then $x \in$ both $A \cup B$ and $A \cup C$, and thus $\in$ 
+$(A \cup B)\cap(A \cup C)$.
+
+If $x \notin A$, then $x \in B \cap C$, then $x \in$ both $A \cup B$ and $A \cup C$, and thus $\in$ 
+$(A \cup B)\cap(A \cup C)$.
+
+On the other hand, 
+suppose 
+\[
+x \in (A \cup B)\cap(A \cup C)
+\] is true.
+
+If $x \in A$, obviously $x \in A \cup (B \cap C)$.
+
+If $x \notin A$, then $x$ must $\in B \cap C$, and thus also $\in A \cup (B \cap C)$.
+
+Now we prove the former. On one hand, suppose
+\[
+x \in A \cap (B \cup C)
+\] is true.
+
+If $x \in A \wedge x \in B$, then $x \in A \cap B$, and thus $\in (A \cap B)\cup(A \cap C)$.
+
+If $x \notin A \vee x \notin B$, then
+\begin{enumerate}
+\item if $x \notin A$, this is impossible.
+\item if $x \in A$, then $x \notin B$. But $x \in B \cup C$, so $x \in C$. And thus 
+$x \in A \cap C \Rightarrow x \in (A \cap B)\cup(A \cap C)$.
+\end{enumerate}
+
+On the other hand, suppose that 
+\[
+x \in (A \cap B)\cup(A \cap C)
+\] is true.
+
+First we can see that $x \in A$. 
+
+If $x \in B$, then $x \in B \cup C$, and thus $\in A \cap (B \cup C)$.
+
+If $x \notin B$, then $x \in C$. So $x \in B \cup C$, and thus $\in A \cap (B \cup C)$.
+
+(g)
+Now we prove the former: On one hand, suppose that 
+\[
+x \in A \cup (X-A)
+\].
+
+If $x \in A$, then $x \in X$ since $A \subseteq X$.
+
+If $x \notin A$, then $x \in X-A$, and thus also $\in X$.
+
+On the other hand, suppose that 
+\[
+x \in X
+\]
+
+If $x \in A$, then $x \in A \cup (X-A)$.
+
+If $x \notin A$, then $x \in X-A$, and thus $\in A \cup (X-A)$.
+
+(h)
+$x \in X - A$ requires $x \notin A$. So $\forall x(x \in A \cap (X-A))$ is always false. 
+Thus
+\[
+\forall x(x \in A \cap (X-A) \Longleftrightarrow x \in \varnothing)
+\] (vacuously true).
+\end{proof}
+
+\paragraph{Exercise 3.1.7} \label{exercise3.1.7}
+\begin{proof}
+(1)
+$\forall x(x \in A \cap B \Longrightarrow x \in A)$. Similarly, we can prove that 
+$A \cap B \subseteq B$. (This can also be achieved via the commutativity).
+
+(2) 
+On one hand, suppose that 
+\[
+C \subseteq A \wedge C \subseteq B
+\] is true.
+Then, 
+\[
+\forall x(x \in C \Longrightarrow x \in A \wedge x \in B \Longrightarrow x \in A \cap B)
+\].
+
+On the other hand, suppose that
+\[
+C \subseteq A \cap B
+\] is true.
+Then, 
+\[
+\forall x(x \in C \Longrightarrow x \in A \wedge x \in B)
+\].
+That is, $C \subseteq A \wedge C \subseteq B$.
+
+(3) It is immediately given by 
+\[
+\forall x(x \in A \Longrightarrow x \in A \cup B)
+\]. 
+Since $\cup$ is commutative, the latter case is proven.
+
+(4) On one hand, suppose that $A \subseteq C \wedge B \subseteq C$ and let $x \in A \cup B$.
+
+If $x \in A$, then $x \in C$.
+
+If $x \notin A$, then $x \in B$, and thus $x \in C$.
+
+On the other hand, suppose that $A \cup B \subseteq C$. Then, 
+\[
+\forall x(x \in A \Longrightarrow x \in A \cup B \Longrightarrow x \in C)
+\]
+\[
+\forall x(x \in B \Longrightarrow x \in A \cup B \Longrightarrow x \in C) \qedhere
+\].
+\end{proof}
+
+\paragraph{Exercise 3.1.8} \label{exercise3.1.8}
+\begin{proof}
+The former: On one hand, 
+Suppose that 
+\[
+x \in A \cap (A \cup B)
+\].
+
+If $x \in A$, then $x \in A$.
+
+If $x \notin A$, this is impossible.
+
+On the other hand, suppose that $x \in A$.
+Then $x \in A \wedge x \in (A \cup B)$, so $x \in A \cap (A \cup B)$.
+
+The latter: On one hand, suppose that $x \in A \cup (A \cap B)$.
+\[
+x \in A \Longrightarrow x \in A.
+\]
+\[
+x \notin A \Longrightarrow x \in (A \cap B) \Longrightarrow x \in A
+\].
+
+On the other hand, Suppose that $x \in A$, then $x \in A \cup (A \cap B)$.
+\end{proof}
+
+\paragraph{Exercise 3.1.9} \label{exercise3.1.9}
+\begin{proof}
+\begin{lem} \label{lem10}
+\[
+\nexists x\forall B\forall A(x \in A \wedge x \in B \wedge A \cap B = \varnothing)
+\]
+\end{lem}
+\begin{proof}
+Suppose the contradiction: $x \in A \wedge x \in B \wedge A \cap B = \varnothing$, then 
+$x \in A \cap B$, and thus $\in \varnothing$, which is impossible.
+\end{proof}
+
+The former: On one hand, suppose that $x \in A$. Then $x \notin B$ by Lemma \ref{lem10}. And
+\[
+x \in A \Longrightarrow x \in A \cup B \Longrightarrow x \in X
+\].
+So $x \in (X-B)$.
+
+On the other hand, suppose that $x \in (X-B)$, then $x \in A \cup B$. But $x \notin B$, so $x \in A$ by 
+Lemma \ref{lem10}.
+
+The latter is immediately proven since $\cap,\cup$ are commutative.
+\end{proof}
+
+\paragraph{Exercise 3.1.10} \label{exercise3.1.10}
+\begin{proof}
+Firstly we prove that $(A-B)\cap (A\cap B) = \varnothing$.
+
+$x \in (A\cap B)$ gives $x \in B$, but $x \in (A-B)$ gives $x \notin B$. So the two statements can not 
+be true simultaneously. Which means 
+\[
+x\in (A-B)\cap (A\cap B) \Longrightarrow x \in \varnothing
+\]
+
+And obviously 
+\[
+x\in (A-B)\cap (A\cap B) \Longleftarrow x \in \varnothing
+\].
+
+Similarly we can conclude all of the three sets are disjoint by the fact that $\nexists x \in$ either 
+two of the three sets.
+
+Now we are showing that their union is $A \cup B$.
+
+On one hand, suppose that 
+\[
+x \in (A-B)\cap(A\cap B)\cap(B-A)
+\].
+$x$ can at most be in one of these sets since they are disjoint.
+If $x \in A$, then $x \in A \cup B$.
+
+If $x \notin A$, then $x \in (B-A)$, and thus $x \in B$. So $x \in A \cup B$.
+
+On the other hand, suppose that $x \in A \cup B$.
+Then $x$ either
+\begin{enumerate}
+\item $\in A$, but $\notin B$, or
+\item $\in B$, but $\notin A$, or
+\item $\in$ both $A,B$.
+\end{enumerate}
+
+If (1), then $x \in (A-B)$.
+
+If (2), then $x \in (B-A)$.
+
+If (3), then $x \in A\cap B$.
+
+In conclusion, we can see that $x \in (A-B)\cap(A\cap B)\cap(B-A)$.
+\end{proof}
+
+\paragraph{Exercise 3.1.11} \label{exercise3.1.11}
+\begin{proof}
+Let $P(x,y)$ be a property pertaining to any object $x,y$, and is true iff $Q(x)$.
+
+According to Axiom 3.6, for any set $S$, there exists a set $Z$, such that 
+$x \in Z \equiv x \in S \wedge P(x,y)$, which means $x \in Z \equiv x \in S \wedge Q(x)$. So 
+is the axiom of specification proven.
+\end{proof}
