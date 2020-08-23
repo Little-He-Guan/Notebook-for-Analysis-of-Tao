@@ -405,9 +405,255 @@ In conclusion, we can see that $x \in (A-B)\cap(A\cap B)\cap(B-A)$.
 
 \paragraph{Exercise 3.1.11} \label{exercise3.1.11}
 \begin{proof}
-Let $P(x,y)$ be a property pertaining to any object $x,y$, and is true iff $Q(x)$.
+Let $S$ be a set.
+Let $P(x,y)$ be a property pertaining to $x \in S$ and any object $y$, and is true iff $Q(x)$, where 
+$Q(x)$ is a property pertaining to $x \in S$.
 
-According to Axiom 3.6, for any set $S$, there exists a set $Z$, such that 
+According to Axiom 3.6, there exists a set $Z$, such that 
 $x \in Z \equiv x \in S \wedge P(x,y)$, which means $x \in Z \equiv x \in S \wedge Q(x)$. So 
 is the axiom of specification proven.
+\end{proof}
+
+\section{Russell's paradox}
+I think one major reason for building such a ``cumbersome'' axiom system is to restrict the way to 
+construct sets. We can not construct just any set we want, there only exist certain kinds of sets.
+
+\paragraph{Exercise 3.2.1} \label{exercise3.2.1}
+\begin{proof}
+(Axiom 3.2) To prove the existence of the empty set, simply choose a property that is false for all 
+objects.
+
+(Axiom 3.3) To prove the existence of a \emph{pair set}, say $\{a,b\}$, let $P(x)$ be a property 
+pertaining to any object $x$, and is true iff $x = a \vee x = b$.
+
+(Axiom 3.4) Let the property be $P(x): x \in A \vee x \in B$.
+
+(Axiom 3.5) Let the property be $Q(x): x \in A \wedge P(x)$, where $P(x)$ is a property pertaining to 
+elements of $A$.
+
+(Axiom 3.6) Let the property be $Q(y): P(x,y)$ is true for some $x \in A$.
+\end{proof}
+
+\paragraph{Exercise 3.2.2} \label{exercise3.2.2}
+\begin{proof}
+(1)
+Suppose the contradiction: $\exists A(A \in A)$. Then by Axiom 3.3, construct a set $B:= \{A\}$. $A$ is 
+the only element in $B$. $A$ is a set. $A$ is not disjoint from $B$, for $A \in A \wedge A \in B$. 
+
+(2)
+Suppose the contradiction: $A \in B \wedge B \in A$. Construct a set $S: \{A,B\}$. $A$ is an element of 
+$S$. $A$ is a set. $A$ is not disjoint from $S$, for $B \in A \wedge B \in S$.
+\end{proof}
+
+\paragraph{Exercise 3.2.3} \label{exercise3.2.3}
+On one hand, if Axiom 3.8 is true, we can choose a property $P(x)$ which is true for all objects. Thus 
+we have $\Omega$.
+
+On the other hand, if there exists such a set as $\Omega$, we can use Axiom 3.5 to construct any set 
+we want from it. (e.g. If we want a set to have these elements: $a,b,\dots$, we can let 
+$P(x):= x = a \vee x = b, \vee \dots$.)
+
+\section{Functions}
+In Example 3.3.3, Tao asked why $x'=x \Rightarrow f(x')=f(x)$. The reason is, the property $P(x,y)$ 
+obeys the axiom of substitution. Thus, $P(x,y)\equiv P(x',y)$. According to definition, since 
+$x' \in X$, $y$ is unique.
+
+In Example 3.3.9, Tao asked why all functions whose domain is $\varnothing$ and whose range is the same 
+are equal. The reason is $x \in \varnothing \Longrightarrow f(x) = g(x)$ is vacuously true.
+
+\paragraph{Exercise 3.3.1} \label{exercise3.3.1}
+\begin{proof}
+The properties of equality are all true since in definition, we only use $f(x) = g(x)$, in which the $=$ 
+obeys these rules, plus the fact that the output is unique.
+
+Then the substitution:
+\begin{align*}
+f = \overset{\sim}{f} &\Longrightarrow \\
+f(x) = \overset{\sim}{f}(x) &\Longrightarrow \\
+g(f(x)) = g(\overset{\sim}{f}(x))
+\end{align*}. 
+And then $\overset{\sim}{g}(\overset{\sim}{f}(x)) = g(\overset{\sim}{f}(x)) = g(x)$.
+\end{proof}
+
+\paragraph{Exercise 3.3.2} \label{exercise3.3.2}
+\begin{proof}
+The former: Suppose the contradiction:
+\[
+\exists x \exists x'(g(f(x)) = g(f(x')) \wedge x \neq x')
+\]
+Then, 
+\begin{align*}
+g(f(x)) = g(f(x')) &\Longrightarrow \\
+f(x)= f(x') \tag{$g$ is injective} &\Longrightarrow \\
+x = x' \tag{$f$ is injective}
+\end{align*}, 
+which is impossible.
+
+The latter: Suppose the contradiction:
+\[
+\exists z \forall x(z \in Z \wedge g \circ f(x) \neq z) 
+\]
+Then, we can conclude that $\exists y \forall x(y \in Y \wedge y \neq f(x))$, since $g$ is surjective. 
+This is impossible as $f$ is surjective.
+\end{proof}
+
+\paragraph{Exercise 3.3.3} \label{exercise3.3.3}
+\begin{proof}
+\begin{large}
+\textbf{Attention:}
+\end{large}
+Different interpretations for injectivity may result in different conclusions. 
+I have asked a question at 
+\href{https://math.stackexchange.com/questions/3800240/how-to-interpret-the-definition-of-injectivity}{Stack Exchange} regarding this problem.
+
+Let the range be $Y$, and the function be $f$.
+Injectivity:
+\[
+\forall x'\forall x((x \in \varnothing \wedge x' \in \varnothing) \Longrightarrow
+(x \neq x' \Longrightarrow f(x) \neq f(x')))
+\], 
+which is always vacuously true.
+
+Surjectivity:
+\[
+\forall y(y \in Y \Longrightarrow \exists x(x \in \varnothing \wedge f(x) = y))
+\], 
+which is false if $Y \neq \varnothing$, and which is vacuously true if $Y = \varnothing$.
+
+Bijective: True if $Y = \varnothing$.
+\end{proof}
+
+\paragraph{Exercise 3.3.4} \label{exercise3.3.4}
+\begin{proof}
+The former: $f,\overset{\sim}{f}$ have the same range and domain. 
+\[
+\forall x(g \circ f = g \circ \overset{\sim}{f} \Longrightarrow g(f(x)) = g(\overset{\sim}{f}(x)))
+\]
+We know that $g$ is injective, so $\forall x \in X, f(x) = \overset{\sim}{f}(x)$. Thus 
+$f = \overset{\sim}{f}$.
+
+It is not true if $g$ is not injective. Consider an extreme condition, where $g$ is constant. So 
+whatever $f,\overset{\sim}{f}$ are, $g \circ f = g \circ \overset{\sim}{f}$ are always equal.
+
+The latter: Suppose the contradiction:$g \neq \overset{\sim}{g}$.
+$g,\overset{\sim}{g}$ have the same range and domain. But they are not equal, so 
+$\exists y(y \in Y \wedge g(y) \neq \overset{\sim}{g}(y))$. Because $f$ is surjective, 
+$\exists x(x \in X \wedge f(x) = y)$. However, $g \circ f(x) = \overset{\sim}{g} \circ f(x)$, so 
+this is impossible.
+
+It is not true if $f$ is not surjective. We can make $g(y) = \overset{\sim}{g}(y)$ when $y=f(x)$, but 
+as well make $g(y') \neq \overset{\sim}{g}(y')$ if $\nexists x(y'=f(x))$.
+\end{proof}
+
+\paragraph{Exercise 3.3.5} \label{exercise3.3.5}
+\begin{proof}
+Injectivity:
+Suppose the contradiction, that 
+\[
+\exists x \exists x'(x \neq x' \wedge f(x) = f(x'))
+\], which immediately gives 
+\[
+g(f(x)) = g(f(x'))
+\], and thus is impossible.
+
+$g$ has not to be also injective, because $f$ being so ensures that an unique input $x$ gives an unique 
+input to $g$.
+
+Surjectivity:
+If $g$ is not surjective, then $\exists z \forall y(z \in Z \wedge y \in Y \wedge z \neq g(y))$
+And whatever $x$ is, $f(x) \in Y$, so $g(f(x)) \neq z$, which is a contradiction.
+
+$f$ has not to be surjective as long as its ``real'' domain is large enough to form the set $Z$ through 
+$g$. For example (Informal), let $g$ be $z = |y|, \mathbb{R} \rightarrow \mathbb{R}^{+}\cup\{0\}$, and 
+let $f$ be $y = x, \mathbb{R}^{+}\cup\{0\} \rightarrow \mathbb{R}$.
+\end{proof}
+
+\paragraph{Exercise 3.3.6} \label{exercise3.3.6}
+\begin{proof}
+The latter:
+By definition, $P(y,x)$ of $x = f^{-1}(y)$ is $f(x)=y$. Substitute $x$ with $f^{-1}(y)$, and here we 
+have $f(f^{-1}(y)) = y$, where $y \in Y$.
+
+The former: Let $y = f(x)$. According to what we have proven, \\
+$f(f^{-1}(y)) = y$. Substitute $y$ with 
+$f(x)$, we have $f(f^{-1}(f(x))) = f(x)$. Since that $f(x)$ is injective, we have $f^{-1}(f(x)) = x$.
+
+Now we need to show that $f^{-1}$ is bijective. Assume that it is not injective, thus 
+$\exists x \exists x'(x \in Y \wedge x' \in Y \Longrightarrow(x\neq x' \Longrightarrow f^{-1}(x) = 
+f^{-1}(x')))$.
+However, according to the latter conclusion, $f^{-1}(x) = f^{-1}(x') \Longrightarrow x=x'$, a 
+contradiction, so $f^{-1}$ must be injective.
+
+And it is also surjective. $\forall x \in X$, $\exists y \in Y, f^{-1}(y)=x$. According to the former 
+conclusion, $y$ is $f(x)$.
+
+So now $f^{-1}$ is bijective, and thus has its inverse. By definition, $P(x,y)$ of 
+$y = (f^{-1})^{-1}(x)$ is $f^{-1}(y) = x$, where $x \in X$. According to the former conclusion, 
+$f^{-1}(f(x)) = x$. Thus
+\[
+f^{-1}(y) = f^{-1}(f(x)) \Longrightarrow y = f(x) \Longrightarrow (f^{-1})^{-1}(x) = f(x)
+\], which is true $\forall x \in X$. And since they have the same domain and range, $(f^{-1})^{-1} = f$.
+\end{proof}
+
+\paragraph{Exercise 3.3.7} \label{exercise3.3.7}
+\begin{proof}
+Injectivity: 
+\[
+g \circ f(x) = g \circ f(x') \Longrightarrow f(x) = f(x') \Longrightarrow x = x'
+\]
+
+Surjectivity:
+For each $z \in Z$, we need to find $x \in X$ such that $g \circ f(x) = z$. By the surjectivity of $g$, 
+we can find $y \in Y$ such that $g(y) = z$. We can also find $a \in X$ such that $f(a) = y$ as $f$ is 
+surjective. So $a$ is our desired $x$.
+
+The $P(z,x)$ of $x = (g \circ f)^{-1}(z)$ is $z = g \circ f(x)$. Consider the following expression:
+\begin{align*}
+f^{-1} \circ g^{-1} (z)
+&= f^{-1} \circ g^{-1} (g \circ f(x)) \\
+&= f^{-1}(\textcolor{red}{g^{-1}(g(}f(x)\textcolor{red}{))}) \\
+&= f^{-1}(f(x)) \\
+&= x
+\end{align*}
+So $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$. Therefore, they are equal as they have the same domain and 
+range.
+\end{proof}
+
+\paragraph{Exercise 3.3.8} \label{exercise3.3.8}
+\begin{proof}
+(a) First they have the same domain and range. Finally, 
+\[
+\forall x(x\in X \Longrightarrow x=x \Longrightarrow \iota_{Y \rightarrow Z} \circ 
+\iota_{X \rightarrow Y} = \iota_{X \rightarrow Z})
+\]
+
+(b) On one hand, they have the same domain and range.
+
+On the other hand, 
+\begin{align*}
+f \circ \iota_{A \rightarrow A}(x) 
+&= f(\iota_{A \rightarrow A}(x)) \\
+&= f(x) \\
+&= \iota_{B \rightarrow B}(f(x)) \\
+&= \iota_{B \rightarrow B} \circ f (x)
+\end{align*}
+
+(c) It is easy to see that they have the same domain and range. 
+
+\[
+f \circ f^{-1} (b) = b = \iota_{B \rightarrow B}
+\]
+\[
+f \circ f^{-1} (a) = a = \iota_{A \rightarrow A}
+\]
+
+(d) It is easy to see that they have the same domain and range.
+
+Let $h$ be 
+$h(x) = f(x)$, if $x \in X$, $h(x) = g(x)$, if $x \in Y$. 
+
+For each $x \in X$, $\iota_{X \rightarrow X \cup Y}(x) = x$, so 
+$h(\iota_{X \rightarrow X \cup Y}(x)) =f(x)$.
+
+Similarly we can prove $h(\iota_{Y \rightarrow X \cup Y}(x)) = g(x)$ for each $x \in Y$.
 \end{proof}
