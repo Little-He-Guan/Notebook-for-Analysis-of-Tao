@@ -58,11 +58,41 @@ Why did Tao say
 If $X$, then $Y$ can also be written as ``$X$ can only be true when $Y$ is true''
 \end{quotation}?
 
-Assume the $X \wedge \neg Y$, thus $X \Longrightarrow Y$. So we have a contradiction 
+Assume the $X \wedge \neg Y$, but $X \Longrightarrow Y$. So we have a contradiction 
 $Y \wedge \neg Y$.
 
 Define ``when $x \neq 2$, $X:x=2 \Longrightarrow x^2=4$ is vacuously true'' to ensure that $X$ is 
 always true regardless of the value of $x$.
+
+\paragraph{My Own Exercise}
+Most of the time, rules of implication are intuitive. But they can be confusing some times. So hereby I 
+introduce an example which I encountered, and which has confused me for a short time.
+
+\begin{prop}
+Let $P,Q,R$ be statements, thus
+\[
+P \Longrightarrow (Q \Longrightarrow R) \equiv (P \wedge Q) \Longrightarrow R
+\]
+\end{prop}
+\begin{proof}
+In order to ascertain that two statements in the form of implication are logically equivalent, we must 
+deeply understand what they are. At one time (that is, when all variables have definite value), a 
+statement can only be either true or false, not both. And for a statement in the form of implication: 
+$X \Longrightarrow Y$, it is true iff (\emph{If} $X$, then $Y$). We do not need to check it if $X$ is 
+not true.
+
+Now back to the subject. To prove that the two are logically equivalent, we need to show that both 
+(if the former is true, then the latter is true) and (if the latter is true, then the former is true).
+
+Now suppose that $P \Longrightarrow (Q \Longrightarrow R)$ is true. That is, if $P$, then 
+(if $Q$, then $R$). To show that under this condition the latter is true, we need to show that if $P,Q$ 
+are both true, then $R$ is true. Suppose that $P \wedge Q$. Since $P$ is true, (if $Q$, then $R$) is 
+true. And we know that $Q$ is true, so $R$ is true. so the latter is true.
+
+Now suppose that the latter is true. We need to verify that the former is also true under this 
+condition. Suppose $P$ is true, then we need to show $Q \Longrightarrow R$ is true, that is, if $Q$, 
+then $R$, and we furthermore suppose that $Q$ is true. Now $P \wedge Q$ is true, so we have $R$ is true.
+\end{proof}
 
 \section{Nested Quantifiers}
 \paragraph{Exercise A.5.1} \label{exercisea.5.1}
