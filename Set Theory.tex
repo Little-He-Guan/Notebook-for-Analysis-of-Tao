@@ -708,6 +708,118 @@ $f(a) = f(f^{-1}(b)) = b \in V$, so $a \in S_1$. Thus, $S_1 = S_2$.
 \end{proof}
 
 \paragraph{Exercise 3.4.2} \label{exercise3.4.2}
+(1) Generally we can say $S \subseteq f^{-1}(f(S))$ but we cannot say that they are equal; (2) we can 
+say $f(f^{-1}(U)) \subseteq U$ but we cannot say that they are equal.
+\begin{proof}
+(1) $x \in S \Longrightarrow f(x) \in f(S) \Longleftarrow x \in f^{-1}(f(S))$. However, it is possible 
+that $\exists x(x \in X \wedge x \notin S \wedge f(x) \in f(S))$
+
+(2) 
+\[
+x \in f^{-1}(U) \Longrightarrow f(x) \in U \Longrightarrow (y \in f(f^{-1}(U)) \Longrightarrow y \in U)
+\]
+However, it is still possible that 
+\[
+\exists y(y \in U \wedge \forall x(x \in X \Longrightarrow f(x) \neq y))
+\]
+\end{proof}
+
+\paragraph{Exercise 3.4.3} \label{exercise3.4.3}
+\begin{proof}
+(1)
+\[
+x \in A \cap B \Longrightarrow f(x) \in f(A) \wedge f(x) \in f(B) \Longrightarrow 
+f(x) \in f(A) \cap f(B)
+\]
+\[
+y \in f(A \cap B) \equiv \exists x(x \in A \cap B \wedge f(x) = y)
+\]
+So $y \in f(A) \cap f(B)$, thus $f(A \cap B) \subseteq f(A) \cap f(B)$.
+
+(2)
+\[
+x \in A \setminus B \Longrightarrow f(x) \in f(A\setminus B)
+\]
+\[
+y \in f(A)\setminus f(B) \Longrightarrow \exists x(x \in A \wedge x \notin B \wedge f(x) = y)
+\]
+So $y \in f(A\setminus B)$, thus $f(A)\setminus f(B) \subseteq f(A\setminus B)$.
+
+(3)
+On one hand, 
+\[
+y \in f(A \cup B) \equiv \exists x (x \in A \cup B \wedge f(x) = y)
+\]
+\begin{align*}
+x \in A \cup B \Longrightarrow x \in A \vee x \in B \Longrightarrow \\
+f(x) \in f(A) \vee f(x) \in f(B) \Longrightarrow f(x) \in f(A)\cup f(B)
+\end{align*}
+
+On the other hand, 
+\[
+y \in f(A) \cup f(B) \Longrightarrow \exists x((x \in A \vee x \in B) \wedge f(x) = y) 
+\]
+\[
+x \in A \vee x \in B \Longrightarrow x \in A \cup B \Longrightarrow f(x) \in f(A\cup B)
+\]
+\end{proof}
+
+(1) $\subseteq$ can not be improved. Since it is possible that 
+\[
+\exists x \exists x'(x \in A \wedge x' \in B \wedge x \neq x' \wedge f(x) = f(x'))
+\]
+
+(2) $\subseteq$ can not be improved. Since it is possible that
+\[
+\exists x \exists x'(x \in A \setminus B \wedge x' \in B \wedge f(x) = f(x'))
+\]
+
+\paragraph{Exercise 3.4.4} \label{exercise3.4.4}
+\begin{proof}
+(1) 
+\begin{align*}
+x \in f^{-1}(U \cup V) \equiv (x \in X \wedge f(x) \in U \cup V) \equiv \\
+(x \in X \wedge (f(x) \in U \vee f(x) \in V))
+\end{align*}
+\begin{align*}
+x \in  f^{-1}(U) \cup  f^{-1}(V) \equiv (x \in X \wedge f(x) \in U) \vee (x \in X \wedge f(x) \in V) \\
+\equiv (x \in X \wedge (f(x) \in U \vee f(x) \in V))
+\end{align*}
+
+(2) and (3) can be proven in similar manners. 
+\end{proof}
+
+\paragraph{Exercise 3.4.5} \label{exercise3.4.5}
+\begin{proof}
+(1) On one hand, if $f(f^{-1}(S)) = S$ for every $S \subseteq Y$, then \\
+$f(f^{-1}(Y)) = Y$. That means, 
+$y \in Y \Longrightarrow \exists x (x \in f^{-1}(Y) \wedge f(x) \in Y)$. So even $f^{-1}(Y)$ 
+is enough for $f$ to be surjective. And $f^{-1}(Y) \subseteq X$, so $f$ is surjective.
+
+On the other hand, if $f$ is surjective, then for each $S \subseteq Y$, 
+\[
+y \in S \Longrightarrow \exists x(x \in X \wedge f(x) = y)
+\]
+Such $x$ are elements of $f^{-1}(S)$ of course, so $f(f^{-1}(S)) = S$.
+
+(2) On one hand, we show that $\forall S(S \subseteq X \Longrightarrow f^{-1}(f(S)) = S)$ implies that 
+$f$ is injective. Suppose the contradiction, that when 
+\[
+\forall S(S \subseteq X \Longrightarrow f^{-1}(f(S)) = S)
+\], but $f$ is not injective. Since $f$ is not injective, 
+\[
+\exists x \exists x'(x \in X \wedge x' \in X \wedge x \neq x' \wedge f(x) = f(x'))
+\]
+Let $S \subseteq X$ and $x \in S \wedge x' \notin S$. There is always such a set $S$.
+For example, we can let $S = X\setminus \{x'\}$. So we have $f^{-1}(f(S)) \neq S$ because $x' \in$ it.
+
+On the other hand, if $f$ is injective, then for every $S \subseteq X$, and for every $x \in S$, we have 
+$f(x) \in f(S)$. And $f(x)$ are the only elements in $f(S)$, that is, 
+$y \in f(S) \Longrightarrow y = f(x)$ for some $x \in S$. So now we know that 
+$S \subseteq f^{-1}(f(S))$. Moreover, for every $x' \in f^{-1}(f(S))$, $f(x') \in f(S)$. We can let 
+$f(x') = y = f(x)$. As $f$ is injective, $x = x'$, so $x' \in S$. That means $f^{-1}(f(S)) \subseteq S$. 
+So $f^{-1}(f(S)) =  S$.
+\end{proof}
 
 \paragraph{Exercise 3.4.6} \label{exercise3.4.6}
 \begin{proof}
@@ -753,4 +865,124 @@ Use the axiom of replacement, we construct a set $Y$ such that
 \]
 
 According to what we have proven, $Y$ is the set we want.
+\end{proof}
+
+\paragraph{Exercise 3.4.7} \label{exercise3.4.7}
+\begin{proof}
+As stated by the previous exercise, there exists a set $\mathbb{X}$ whose elements are all subsets of 
+$X$, and a set $\mathbb{Y}$ whose elements are all subsets of $Y$.
+
+For every element $x \in \mathbb{X}$, apply the axiom of replacement to $\mathbb{Y}$, to obtain a set 
+$S_x := \{y^x\}$ for every element $y \in \mathbb{Y}$. 
+
+According to the axiom of union, using $\mathbb{X}$ as the index set, we have the set
+\[
+Z = \bigcup_{x \in \mathbb{X}} S_x
+\]
+
+Apply again the axiom of union to $Z$ to obtain $R$, which contains all elements of elements of $Z$. Now 
+we show that $R$ is the set we want.
+
+On one hand, let $f$ be an arbitrary function with the domain of $X' \subseteq X$, and the range of $Y' 
+\subseteq Y$. We can see that $f \in {Y'}^{X'} \in S_{X'}$. ${Y'}^{X'}$ becomes an element of $Z$. And 
+thus $f$ becomes an element in $R$. 
+
+On the other hand, from the construction of $R$, we can see that $R$ contains only these elements.
+
+\end{proof}
+
+\paragraph{Exercise 3.4.8} \label{exercise3.4.8}
+\begin{proof}
+Let $A,B$ be two arbitrary sets. They are also objects as stated by Axiom 3.1. So according to 
+Axiom 3.3, there exists a set $S=\{A,B\}$. By Axiom 3.11, we have a set $Z$ such that 
+\[
+\forall x(x \in Z \equiv \exists X(X \in S \wedge x \in X))
+\]
+
+Now we show that $Z$ is the set we want. If $x \in A \vee x \in B$, then 
+$\exists X(X \in S \wedge x \in X)$ is true. So $x \in Z$.
+
+If $x \notin A \wedge x \notin B$, then $\forall X(X \in S \Longrightarrow x \notin X)$, that is, 
+$\exists X(X \in S \wedge x \in X)$ is false. So $x \notin Z$.
+
+$Z$ is therefore the set we want. 
+\end{proof}
+
+\paragraph{Example 3.4.11}
+In (3.3), why do Tao choose some element $\beta$ of $I$? This is because we need to apply the axiom of 
+specification to $A_\beta$ with the restriction $x \in A_\alpha$ for all $\alpha \in I$.
+
+\paragraph{Exercise 3.4.9} \label{exercise3.4.9}
+\begin{proof}
+This is quiet easy to prove. Let the left-handed side set be $S$, the RHS set be $S'$. For any 
+$x \in S$, $x \in A_\alpha$ for all $\alpha \in I$. So $x \in A_{\beta'}$. And $x \in A_\alpha$ for all 
+$\alpha \in I$. Therefore $x \in S'$. 
+
+It is nearly the same the prove $x \in S' \Longrightarrow x \in S$.
+\end{proof}
+
+\paragraph{Exercise 3.4.10} \label{exercise3.4.10}
+\begin{proof}
+For the sake of convenience, let 
+$(\bigcup_{\alpha \in I} A_{\alpha})\cup(\bigcup_{\alpha \in J}A_{\alpha})$ be $S$, \\
+$\bigcup_{\alpha \in I \cup J} A_{\alpha}$ be $S'$, 
+$(\bigcap_{\alpha \in I} A_{\alpha})\cap(\bigcap_{\alpha \in J}A_{\alpha})$ be $Z$,
+$\bigcap_{\alpha \in I \cup J} A_{\alpha}$ be $Z'$.
+
+(1) When $I,J \neq \varnothing$: 
+On one hand, 
+\[
+x \in S \Longrightarrow (x \in \bigcup_{\alpha \in I} A_{\alpha} \vee 
+x \in \bigcup_{\alpha \in J}A_{\alpha})
+\]
+If $x \in \bigcup_{\alpha \in I} A_{\alpha}$, then $x \in \bigcup_{\alpha \in I \cup J} A_{\alpha}$.
+If $x \in \bigcup_{\alpha \in J} A_{\alpha}$, then $x \in \bigcup_{\alpha \in I \cup J} A_{\alpha}$.
+
+On the other hand, if $x \in S'$, then there exists an object $a \in I \cup J$ such that $x \in A_a$.
+If $a \in I$ then $x \in x \in \bigcup_{\alpha \in I} A_{\alpha} \Longrightarrow x \in S$.
+If $a \in J$ then $x \in x \in \bigcup_{\alpha \in J} A_{\alpha} \Longrightarrow x \in S$.
+
+When $I,J$ are both empty, $S,S'$ are all empty.
+
+When there is only one of $I,J$ is empty, say it is $I$, then 
+$S = \varnothing \cup \bigcup_{\alpha \in J} = \bigcup_{\alpha \in J}$. And 
+$S' = \bigcup_{\alpha \in \varnothing \cup J} A_{\alpha} = \bigcup_{\alpha \in J}$.
+
+(2)
+\[
+x \in Z \equiv \forall a(a \in I \Longrightarrow x \in A_a) \wedge 
+\forall b(b \in J \Longrightarrow x \in A_b)
+\], which is equal to $\forall a(a \in I \cup J \Longrightarrow x \in A_a) \equiv x \in Z'$.
+\end{proof}
+
+\paragraph{Exercise 3.4.11} \label{exercise3.4.11}
+\begin{proof}
+(1) Let the LHS be $S$, the RHS be $S'$. 
+\begin{align*}
+x \in S &\equiv \\
+x \in X \wedge x \notin \bigcup_{\alpha \in I} A_{\alpha} &\equiv \\
+x \in X \wedge \forall a(a \in I \Longrightarrow x \notin A_{a})
+\end{align*}
+\begin{align*}
+x \in S' &\equiv \\
+\forall a(a \in I \Longrightarrow x \in X \setminus A_a) &\equiv \\
+x \in X \wedge \forall a(a \in I \Longrightarrow x \notin A_a)
+\end{align*}.
+
+So $S=S'$.
+
+(2) Let the LHS be $Z$, the RHS be $Z'$. 
+\begin{align*}
+x \in Z &\equiv \\
+x \in X \wedge x \notin \bigcap_{\alpha \in I} A_{\alpha} &\equiv \\
+x \in X \wedge \neg(\forall a(a \in I \Longrightarrow x \in A_a)) &\equiv \\
+x \in X \wedge \exists a(a \in I \Longrightarrow x \notin A_a)
+\end{align*}
+\begin{align*}
+x \in Z' &\equiv \\
+x \in X \wedge \bigvee_{\alpha \in I}(x \notin A_{\alpha}) &\equiv \\
+x \in X \wedge \exists a(a \in I \Longrightarrow x \notin A_a)
+\end{align*}
+
+Thus, $Z = Z'$
 \end{proof}
