@@ -986,3 +986,138 @@ x \in X \wedge \exists a(a \in I \Longrightarrow x \notin A_a)
 
 Thus, $Z = Z'$
 \end{proof}
+
+\section{Cartesian products}
+\paragraph{Exercise 3.5.1} \label{exercise3.5.1}
+\begin{proof}
+First we show that $(x,y) = \{\{x\},\{x,y\}\}$ is a good definition. 
+Let $S_1$ denote $(x_1,y_1) = \{\{x_1\},\{x_1,y_1\}\}$, $S_2$ denote 
+$(x_2,y_2) = \{\{x_2\},\{x_2,y_2\}\}$.
+
+On one hand, if $x_1=x_2\wedge y_1=y_2$, then obviously $S_1=S_2$ for they have the same elements.
+
+On the other hand, if $S_1 = S_2$, then 
+\[
+\{x_1\} \in S_2 \wedge \{x_1,y_1\} \in S_2 \wedge
+\{x_2\} \in S_1 \wedge \{x_2,y_2\} \in S_1 
+\].
+We have that 
+\begin{align*}
+\{x_1\} \in S_2 &\equiv \{x_1\} = \{x_2\} \vee \{x_1\} = \{x_2,y_2\} \\
+&\equiv x_1=x_2 \vee x_1=x_2=y_2 \\
+&\Longrightarrow x_1=x_2
+\end{align*}
+\begin{align*}
+\{x_1,y_1\} \in S_2 &\equiv \{x_1,y_1\} = \{x_2\} \vee \{x_1,y_1\} = \{x_2,y_2\} \\
+&\equiv x_1=x_2=y_1 \\
+&\vee \textcolor{red}{((x_1=x_2\wedge y_1=y_2)\vee(x_1=y_2\wedge y_1=x_2))} 
+\end{align*}
+Similarly we have that
+\begin{align*}
+\{x_2,y_2\} \in S_1 
+&\equiv x_2=x_1=y_2 \\
+&\vee \textcolor{red}{((x_2=x_1\wedge y_2=y_1)\vee(x_2=y_1\wedge y_2=x_1))}
+\end{align*}
+We may notice that the red-colored text are two same statements. Thus from $\{x_1,y_1\} \in S_2$ and 
+$\{x_2,y_2\} \in S_1$ we can always conclude that $y_1=y_2$. Therefore, 
+$S_1 = S_2 \Longrightarrow x_1=x_2\wedge y_1=y_2$.
+
+Then we show that if $X,Y$ are two sets, then $X \times Y$ is also a set. For each element $x \in X$, 
+construct a set $S_x$, where we replace each element $y \in Y$ with $(x,y)$. Then construct the set 
+$\bigcup_{x \in X}S_x$.
+\end{proof}
+
+\paragraph{Exercise 3.5.2} \label{exercise3.5.2}
+\begin{proof}
+Since $x,y$ are two functions, they are equal means that $\forall 1\leq i \leq n$, $x(i) = y(i)$. That 
+is, $x_i = y_i, 1\leq i \leq n$.
+
+Now we show that $\displaystyle \prod_{1\leq i\leq n}X_i$ is a set. Let set $F$ be the set that contains 
+all partial functions from $N = \{i \in \mathbb{N}:1\leq i\leq n\}$ to 
+$\displaystyle X = \bigcup_{1\leq i\leq n}X_i$ (Exercise 3.4.7). Use the axiom of specification, select 
+such elements $f$ from $F$ that:
+\begin{enumerate}
+\item the element is surjective, and
+\item its domain is $N$, and 
+\item $f(i) \in X_i$
+\end{enumerate}, 
+and use all of them to construct a set $Z$, which is the set we want.
+\end{proof}
+
+\paragraph{Exercise 3.5.3} \label{exercise3.5.3}
+\begin{proof}
+The definition is entirely based on the equality of objects (e.g. $x = x'$). The proof is immediately 
+done since this equality is reflective ($x = x$), symmetric ($x = x' \equiv x' = x$), and transitive 
+($x_0 = x_1 \wedge x_1 = x_2 \Longrightarrow x_0 = x_2$).
+\end{proof}
+
+\paragraph{Exercise 3.5.4} \label{exercise3.5.4}
+\begin{proof}
+(1)
+\begin{align*}
+(x,y) \in A \times (B \cup C) &\equiv x \in A \wedge y \in (B \cup C) \\
+&\equiv x \in A \wedge (y \in B \vee y \in C) \\
+&\equiv (x \in A \wedge y \in B) \vee (x \in A \wedge y \in C) \\
+&\equiv ((x,y) \in A \times B) \vee ((x,y) \in A \times C) \\
+&\equiv (x,y) \in (A \times B) \cup (A \times C)
+\end{align*}
+
+(2)
+\begin{align*}
+(x,y) \in A \times (B \cap C) &\equiv x \in A \wedge y \in (B \cap C) \\
+&\equiv x \in A \wedge (y \in B \wedge y \in C) \\
+&\equiv (x \in A \wedge y \in B) \wedge (x \in A \wedge y \in C) \\
+&\equiv ((x,y) \in A \times B) \wedge ((x,y) \in A \times C) \\
+&\equiv (x,y) \in (A \times B) \cap (A \times C)
+\end{align*}
+
+(3)
+\begin{align*}
+(x,y) \in A \times (B \setminus C) &\equiv x \in A \wedge y \in (B \setminus C) \\
+&\equiv x \in A \wedge (y \in B \wedge \neg (y \in C)) \\
+&\equiv (x \in A \wedge y \in B) \wedge \neg (x \in A \wedge y \in C) \\
+\tag{The statement $x \in A$ implies $\neg (x \in A \wedge y \in C) 
+\Longrightarrow \neg (y \in C)$}\\
+&\equiv ((x,y) \in A \times B) \wedge \neg((x,y) \in A \times C) \\
+&\equiv (x,y) \in (A \times B) \setminus (A \times C)
+\end{align*}
+\end{proof}
+
+\paragraph{Exercise 3.5.5} \label{exercise3.5.5}
+\begin{proof}
+(1)
+\begin{align*}
+(x,y) \in (A \times B) \cap (C \times D) 
+&\equiv (x,y) \in (A \times B) \wedge (x,y) \in (C \times D) \\
+&\equiv (x \in A \wedge y \in B) \wedge (x \in C \wedge y \in D) \\
+&\equiv (x \in A \wedge x \in C) \wedge (y \in B \wedge y \in D) \\
+&\equiv x \in A \cap C \wedge y \in B \cap D \\
+&\equiv (x,y) \in (A \cap C) \times (B \cap D)
+\end{align*}
+
+(2) It is not true since 
+\begin{align*}
+(x,y) \in (A \times B) \cup (C \times D) 
+&\equiv (x,y) \in (A \times B) \vee (x,y) \in (C \times D) \\
+&\equiv (x \in A \wedge y \in B) \vee (x \in C \wedge y \in D) \\
+&\nLeftrightarrow (x \in A \vee x \in C) \wedge (y \in B \vee y \in D)
+\end{align*}
+Generally 
+\[
+(x \in A \wedge y \in B) \vee (x \in C \wedge y \in D) \Longrightarrow 
+(x \in A \vee x \in C) \wedge (y \in B \vee y \in D)
+\], 
+but
+\[
+(x \in A \vee x \in C) \wedge (y \in B \vee y \in D) \nRightarrow
+(x \in A \wedge y \in B) \vee (x \in C \wedge y \in D)
+\].
+
+(3) It is not true since
+\begin{align*}
+(x,y) \in (A \times B) \setminus (C \times D) 
+&\equiv (x,y) \in (A \times B) \wedge (x,y) \notin (C \times D) \\
+&\equiv (x \in A \wedge y \in B) \wedge (x \notin C \vee y \notin D) \\
+&\nLeftrightarrow (x \in A \wedge x \notin C) \wedge (y \in B \wedge y \notin D)
+\end{align*}
+\end{proof}
