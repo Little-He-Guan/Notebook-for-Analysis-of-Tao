@@ -711,7 +711,7 @@ $f(a) = f(f^{-1}(b)) = b \in V$, so $a \in S_1$. Thus, $S_1 = S_2$.
 (1) Generally we can say $S \subseteq f^{-1}(f(S))$ but we cannot say that they are equal; (2) we can 
 say $f(f^{-1}(U)) \subseteq U$ but we cannot say that they are equal.
 \begin{proof}
-(1) $x \in S \Longrightarrow f(x) \in f(S) \Longleftarrow x \in f^{-1}(f(S))$. However, it is possible 
+(1) $x \in S \Longrightarrow f(x) \in f(S) \Longrightarrow x \in f^{-1}(f(S))$. However, it is possible 
 that $\exists x(x \in X \wedge x \notin S \wedge f(x) \in f(S))$
 
 (2) 
@@ -1120,4 +1120,172 @@ but
 &\equiv (x \in A \wedge y \in B) \wedge (x \notin C \vee y \notin D) \\
 &\nLeftrightarrow (x \in A \wedge x \notin C) \wedge (y \in B \wedge y \notin D)
 \end{align*}
+\end{proof}
+
+\paragraph{Exercise 3.5.6} \label{exercise3.5.6}
+\begin{proof}
+(1) On one hand, if $A \subseteq C$ and $B \subseteq D$, then 
+\begin{align*}
+(x,y) \in A \times B &\equiv x \in A \wedge y \in B \\
+&\Longrightarrow x \in C \wedge y \in D \\
+&\Longrightarrow (x,y) \in C \times D
+\end{align*}, 
+which means $A \times B \subseteq C \times D$.
+
+On the other hand, if $A \times B \subseteq C \times D$, but we suppose that 
+\[
+\neg(A \subseteq C \wedge B \subseteq D)
+\]. 
+We only consider that $A \nsubseteq C$, the other situations are similar. Then 
+$\exists x(x \in A \wedge x \notin C)$. Let $p = (x,y)$, where $y \in B$, then $p \in A \times B$. 
+But $x \notin C$, so $p \notin C \times D$, a contradiction. Therefore, 
+\[
+A \times B \subseteq C \times D \Longrightarrow A \subseteq C \wedge B \subseteq D
+\]
+
+(2) On one hand, if $A = C \wedge B = D$, then
+\begin{align*}
+(x,y) \in A \times B &\equiv x \in A \wedge y \in B \\
+&\equiv x \in C \wedge y \in D \\
+&\equiv (x,y) \in C \times D
+\end{align*}.
+
+On the other hand, if $A \times B = C \times D$, but we suppose that $\neg(A = C \wedge B = D)$. 
+We only consider that $A \neq C$, the other situations are similar. Then we only consider 
+$\exists x(x \in A \wedge x \notin C)$, for the other situations are similar. 
+
+(3) It is easy to prove that $X \times \varnothing = \varnothing$ and 
+$\varnothing \times X = \varnothing$. Let $A = \varnothing$, we can see that even if $B \nsubseteq D$, 
+$A \times B \subseteq C \times D$. 
+
+Let $A = D = \varnothing$, then even if $A \neq C$, $A \times B = C \times D$.
+\end{proof}
+
+\paragraph{Exercise 3.5.7} \label{exercise3.5.7}
+\begin{proof}
+Existence: Let $h(t):=(f(t),y(t))$. It is easy to verify that $h(t) \in X \times Y$, and that given a 
+$t \in Z$, $h(t)$ is unique. Therefore, $h$ is a function. And it is obvious that 
+$\pi_{X\times Y \rightarrow X} \circ h = f$ and that $\pi_{X\times Y \rightarrow Y} \circ h = g$.
+
+Uniqueness: $\pi_{X\times Y \rightarrow X} \circ h = f$ and $\pi_{X\times Y \rightarrow Y} \circ h = g$ 
+imply that if there is another function $h'$ that satisfies the requirements, then $h'(t) = h(t)$. So $h$ 
+is unique. 
+\end{proof}
+
+\paragraph{Exercise 3.5.8} \label{exercise3.5.8}
+\begin{proof}
+On one hand, if for some $i, X_i = \varnothing$, then 
+\[
+\forall (x_i)_{1\leq i \leq n}(\bigwedge^{n}_{i =1}x_i \in X_i \equiv (x_i)_{1\leq i \leq n} \in 
+\varnothing)
+\], 
+which means that $\varnothing = \prod_{i=1}^{n}X_i$.
+
+On the other hand, if $\prod_{i=1}^{n}X_i = \varnothing$ but we suppose that $X_i \neq \varnothing$. Then 
+for each $i$, $\exists x_i \in X_i$. We thus have a tuple $(x_i)_{1\leq i \leq n}$, which should be an 
+element of $\prod_{i=1}^{n}X_i$. Therefore we have a contradiction.
+\end{proof}
+
+\paragraph{Exercise 3.5.9} \label{exercise3.5.9}
+\begin{proof}
+On one hand, let $x \in (\bigcup_{\alpha \in I}A_{\alpha})\cap(\bigcup_{\beta \in J}B_{\beta})$. Then 
+\[
+\exists a(a \in I \wedge x \in A_a) \wedge \exists b(b \in J \wedge x \in B_b)
+\]
+It is obvious that $x \in A_a \cap B_b$ and that $(a,b) \in I \times J$. Therefore 
+\[
+x \in \bigcup_{(\alpha,\beta) \in I \times J}(A_\alpha \cap B_\beta)
+\].
+
+On the other hand, let $x \in \bigcup_{(\alpha,\beta) \in I \times J}(A_\alpha \cap B_\beta)$. Then 
+\begin{align*}
+\exists (a,b) \in I \times J(x \in A_a \cap B_b) 
+&\Longrightarrow  x \in A_a \wedge x \in B_b \\
+&\Longrightarrow x \in \bigcup_{\alpha \in I}A_{\alpha} \wedge x \in \bigcup_{\beta \in J}B_{\beta} \\
+&\Longrightarrow x \in (\bigcup_{\alpha \in I}A_{\alpha})\cap(\bigcup_{\beta \in J}B_{\beta})
+\end{align*}
+\end{proof}
+
+\paragraph{Exercise 3.5.10} \label{exercise3.5.10}
+\begin{proof}
+We denote $\overset{\sim}{f}$ as $f'$, the graph of $f$ as $G$, and the graph of $f'$ as $G'$ for the 
+sake of simplification.
+
+(1) On one hand, if $f = f'$, then for every $(x,f(x)) \in G$, we can find $(x,f'(x)) \in G'$, and 
+obviously $(x,f(x)) = (x,f'(x))$, and vice versa.
+
+On the other hand, if $G = G'$, then for each $(x,f(x)) \in G$, $(x,f(x)) \in G'$. Note that each 
+element of $G'$ obeys the form $(x,f'(x))$, so $f(x) = f'(x)$ for every $x \in X$, that is, $f=f'$.
+
+(2) Existence: Let $f(x)$ be such a value that $(x,f(x)) \in G$. Thus the value is unique, so $f$ is a 
+function. According to its definition, the graph of $f$ is $G$.
+
+Uniqueness: As proven in (1), if $f,f'$ have the same graph, then they are equal.
+\end{proof}
+
+\paragraph{Exercise 3.5.11} \label{exercise3.5.11}
+I think this exercise is meaningless. Lemma 3.4.6 is proven by the fact that $X^Y$ exists, which depends 
+on Axiom 3.10. Then the exercise asks us to prove Axiom 3.10 using Lemma 3.4.6. So I looked up some books 
+about set theory and found out that the power set axiom is essentially Lemma 3.4.6, not Axiom 3.10.
+
+Nevertheless, here is the proof:
+\begin{proof}
+Let set $Z$ contains all subsets of $X\times Y$. The specify such element in $Z$ that obey the vertical 
+line test, and let them form the set $S$. According to the previous exercise, for each element in $S$, 
+there exists an unique function whose graph is the element. Then we replace all elements in $S$ with 
+these functions to construct the set $F$. Obviously, each element in $F$ is a function with the domain 
+$X$ and the range $Y$.
+
+Now we show that every function $f$ from $X$ to $Y$ is in $F$. Denote the graph of $f$ as $G$. We know 
+that $G$ obeys the vertical line test and $G \subseteq X \times Y$, so $G \in S$. Since $G$ is the graph 
+of $f$, $f \in F$.
+\end{proof}
+
+\paragraph{Exercise 3.5.12} \label{exercise3.5.12}
+I am confused by this exercise. It seems that simply applying induction to $a$ can solve the 
+problem, just like what we did in Proposition 2.1.16. What is wrong?
+
+By the way, according to the \href{https://terrytao.wordpress.com/books/analysis-i/}{corrections}, 
+edit the exercise as the following:
+\begin{quotation}
+Let $X$ be an arbitrary set containing at least an element $c$ and obeys the Peano axioms. Let $f$ be a 
+function from $N \times X$ to $X$. ... 
+
+Show that there exists an unique function $a$ from $X$ to $X$ such that 
+\[
+a(0) = c
+\] 
+and 
+\[
+a(n++) = f(n,a(n)), \forall n \in X
+\]
+...
+
+such that $a_N(0) = c$ and $a_{N}(n++) = f(n,a_N(n))$ ... 
+\end{quotation}
+
+Note that all properties (e.g. orders, addition) in section 2 are deduced from the Peano axioms and their 
+definitions. Since $X$ obeys these rules, we use such properties on elements of $X$ without proof.
+
+The proof is now reserved for further research.
+\begin{proof}
+\end{proof}
+
+\paragraph{Exercise 3.5.13} \label{exercise3.5.13}
+\begin{proof}
+Use induction.
+
+Existence: We need to prove that for all $n \in \mathbb{N}$, $f(n)$ is defined. Use induction:
+$f(0) = 0'$ is define. And the definition is unique for $0$ is not the successor of any natural number. 
+Now suppose that $f(n) = n'$ is defined, then $f(S(n)) = S'(f(n)) = S'(n')$ is also defined. The 
+definition is also unique. So we know that $f$ exists.
+
+Injectivity: We need to prove that $f(m) = f(n) \Longrightarrow m = n$. If $f(m) = f(n)$, then $m' = n'$, 
+and thus $m=n$. 
+
+Surjectivity: Use induction: 
+The basic case is, for $0' \in \mathbb{N}'$, $f(0) = 0'$. 
+
+Now suppose that for $n' \in \mathbb{N}'$, we can find $n \in \mathbb{N}$ such that $f(n) = n'$, then 
+for $S'(n')$, we have $f(S(n)) = S'(n')$. We can close the induction now.
 \end{proof}

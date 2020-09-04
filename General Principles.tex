@@ -1,0 +1,71 @@
+\section{General Principles}
+This section describes the overall principles of the document. It illuminates how notations are explained, 
+in what structure this document is written and so forth. This section should be read and understood 
+comprehensively prior to reading the main content of the document.
+
+\subsection{Definitions}
+\begin{description}
+\item[The document] The phrase \emph{the document} means this document (what you're reading) itself.
+\item[The book] The phrase \emph{the book} represents Tao's \emph{Analysis} (both volume I and II).
+\end{description}
+
+\subsection{Indices}
+The book has two volumes: 
+\emph{Analysis I} and \emph{Analysis II}. We may notice that the indices of the two volumes both start 
+from 1. It may lead to some confusions. So in the document, the indices are organized in such a way that:
+If the content comes from \emph{Analysis I}, the corresponding index is the same as the book's. 
+Otherwise, the corresponding index is prefixed with ``2.''.
+
+For example, Exercise 3.1.3 in \emph{Analysis I} is indexed as Exercise 3.1.3 in the document, but 
+Exercise 3.1.3 in \emph{Analysis II} is indexed as Exercise 2.3.1.3.
+
+\subsection{Notations}
+In the answers to some exercises, you may notice that the content are divided by numbers enclosed with 
+parentheses (e.g. \textbf{(1)}, \textbf{(2)}). Tao often puts multiple questions into a single exercise, 
+so these numbers indicates the number of the sub-questions.
+
+For example, Exercise 3.5.4 is 
+\begin{quotation}
+Exercise 3.5.4. Let $A,B,C$ be sets. Show that $A\times(B\cup C) = (A\times B)\cup(A\times C)$,
+that $A\times(B\cap C) = (A\times B)\cap(A\times C)$, and that 
+$ A\times(B\setminus C) = (A\times B)\setminus(A\times C)$.
+\end{quotation}
+Then (1) indicates the question ``Show that $A\times(B\cup C) = (A\times B)\cup(A\times C)$.'', 
+(2) indicates the question ``Show that $A\times(B\cap C) = (A\times B)\cap(A\times C)$.'', and 
+(3) indicates the question ``Show that $A\times(B\setminus C) = (A\times B)\setminus(A\times C)$''.
+
+In logical contents, 
+\[
+\Longrightarrow, \Rightarrow, \longrightarrow, \rightarrow, 
+\]
+have the same meaning ``implies''. And 
+\[
+\Longleftarrow, \Leftarrow, \longleftarrow, \leftarrow,
+\]
+also have the same meaning ($P \leftarrow Q$ means that $Q$ implies $P$).
+Finally, these following symbols all indicate logical equality.
+\[
+\leftrightarrow, \longleftrightarrow, \Leftrightarrow, \Longleftrightarrow, \equiv
+\].
+
+For nested quantifiers, their order is ``from left to right''. For example, the following statement 
+\[
+\forall x \exists y (P(x,y))
+\]
+means that for all object $x$, their exists a object $y$ such that $P(x,y)$ is true.
+That is,
+\[
+\forall x(\exists y(P(x,y)))
+\]
+
+Tao uses $++$ to denote the successor of a natural number. However, in the document, it is denoted by 
+$S(n)$ most of the times.
+
+\[
+\bigvee_{i=1}^{n} P(i), \bigwedge_{i=1}^{n} P(i)
+\]
+mean that for $1\leq i \leq n$, at least one $P(i)$ is true; and for all $1\leq i \leq n$, $P(i)$ is 
+true, respectively.
+
+Some sets that have special meanings (e.g. the set of all natural numbers, the set of all real numbers) 
+are denoted in whiteboard font (e.g. $\mathbb{N}, \mathbb{R}$).
