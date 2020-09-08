@@ -26,6 +26,8 @@ colorlinks=true,
 linkcolor=blue
 }
 
+\newcommand{\exerciseref}[1]{\hyperref[exercise#1]{Exercise #1}}
+
 \begin{document}
 \pagenumbering{gobble}
 \maketitle
@@ -37,7 +39,7 @@ This document serves as a notebook for Tao's analysis book.
 \vspace{\fill}
 
 \begin{center}
-Copyright \copyright{} He Guanyuming 2020. 
+Copyright \copyright{} Guanyuming He 2020. 
 
 This document is licensed under the MIT license.
 
@@ -74,37 +76,42 @@ You can get a copy of source code at
 \begin{flushright}
 \foreach \x in {1,2,...,6}
 {
-\hyperref[exercise2.2.\x]{Exercise 2.2.\x} --- \pageref{exercise2.2.\x} \\
+\exerciseref{2.2.\x} --- \pageref{exercise2.2.\x} \\
 }
 
 \foreach \x in {1,2,...,5}
 {
-\hyperref[exercise2.3.\x]{Exercise 2.3.\x} --- \pageref{exercise2.3.\x} \\
+\exerciseref{2.3.\x} --- \pageref{exercise2.3.\x} \\
 }
 
 \foreach \x in {1,2,...,11}
 {
-\hyperref[exercise3.1.\x]{Exercise 3.1.\x} --- \pageref{exercise3.1.\x} \\
+\exerciseref{3.1.\x} --- \pageref{exercise3.1.\x} \\
 }
 
 \foreach \x in {1,2,3}
 {
-\hyperref[exercise3.2.\x]{Exercise 3.2.\x} --- \pageref{exercise3.2.\x} \\
+\exerciseref{3.2.\x} --- \pageref{exercise3.2.\x} \\
 }
 
 \foreach \x in {1,2,...,8}
 {
-\hyperref[exercise3.3.\x]{Exercise 3.3.\x} --- \pageref{exercise3.3.\x} \\
+\exerciseref{3.3.\x} --- \pageref{exercise3.3.\x} \\
 }
 
 \foreach \x in {1,2,...,11}
 {
-\hyperref[exercise3.4.\x]{Exercise 3.4.\x} --- \pageref{exercise3.4.\x} \\
+\exerciseref{3.4.\x} --- \pageref{exercise3.4.\x} \\
 }
 
 \foreach \x in {1,2,...,13}
 {
-\hyperref[exercise3.5.\x]{Exercise 3.5.\x} --- \pageref{exercise3.5.\x} \\
+\exerciseref{3.5.\x} --- \pageref{exercise3.5.\x} \\
+}
+
+\foreach \x in {1,2,...,4}
+{
+\exerciseref{3.6.\x} --- \pageref{exercise3.6.\x} \\
 }
 
 \foreach \x in {1,2,...,6}

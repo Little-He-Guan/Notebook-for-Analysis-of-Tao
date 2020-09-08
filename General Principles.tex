@@ -1,3 +1,6 @@
+% Copyright (C) He Guanyuming 2020
+% The file is licensed under the MIT license.
+
 \section{General Principles}
 This section describes the overall principles of the document. It illuminates how notations are explained, 
 in what structure this document is written and so forth. This section should be read and understood 
@@ -69,3 +72,16 @@ true, respectively.
 
 Some sets that have special meanings (e.g. the set of all natural numbers, the set of all real numbers) 
 are denoted in whiteboard font (e.g. $\mathbb{N}, \mathbb{R}$).
+
+Without special interpretation, the notation
+\[
+(\forall x P(x))(Q(x))
+\]
+is interpreted as 
+\[
+\forall x(P(x) \Longrightarrow Q(x))
+\]
+For example, 
+\[
+(\forall x \in X)(Q(x)) \equiv \forall x(x \in X \Longrightarrow Q(x))
+\]

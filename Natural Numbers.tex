@@ -19,6 +19,18 @@ natural numbers) are used as more generic assumptions for general mathematical o
 Once we have described the basic properties of natural numbers and the successor function $S$, we can 
 apply our common symbol system to it. We define $1 := S(0),\ 2 :=S(1)$ and so on.
 
+There is something interesting about the mathematical induction. Consider the situation where we have a 
+property $P(n)$ pertaining to all natural numbers $n$, and which is vacuously true if $n=0$. Then do we 
+need to check if it is true when $n=1$, or can we just check if $P(n) \Longrightarrow P(S(n))$? 
+
+The answer is, we need to check if it is true when $n=1$. We can just choose a property $P(n)$ such that:
+$\neg P(0) \wedge (P(n) \Longrightarrow P(S(n)))$. Then let $Q(n)$ be any property such that $Q(0)$ is 
+vacuously true and $Q(n) \equiv P(n)$ when $n \neq 0$. We can see that $Q(n)$ may not be always true.
+
+Another thing is, what if a property $P$ does not pertain to $0$? For example, if we let $P$ be a property 
+pertaining to all $n \in \mathbb{N} \wedge n \neq 0$, can we apply mathematical induction to it? Generally 
+we can. We can define the property $Q(n)$ to be $P(S(n))$, then $Q(0) \equiv P(1)$ is the base case.
+
 \subsection{Addition of Natural Numbers}
 Then we define operations, such as addition, on natural numbers. 
 
@@ -277,9 +289,9 @@ b=a+0&=a
 
 (4)
 \begin{align*}
-a \geq b &\Longrightarrow \\
-a = b+n &\Longrightarrow \\
-a+c=(b+n)+c=b+(n+c)=b+(c+n)=(b+c)+n &\Longrightarrow \\
+a \geq b &\equiv \\
+a = b+n &\equiv \\
+a+c=(b+n)+c=b+(n+c)=b+(c+n)=(b+c)+n &\equiv \\
 a+c \geq b+c
 \end{align*}
 
