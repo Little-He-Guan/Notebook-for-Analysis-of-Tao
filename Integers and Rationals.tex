@@ -1,0 +1,240 @@
+\part{Integers and Rationals}
+Now we are going to extend natural numbers to integers and rationals.
+
+\section{Integers}
+
+\paragraph{Exercise 4.1.1} \label{exercise4.1.1}
+\begin{proof}
+It is immediately given by the fact that 
+\[
+a+b = a+b \equiv a -- b = a -- b
+\]
+\end{proof}
+
+\paragraph{Lemma 4.1.3}
+\[
+(m--0)+(n--0) = (m+n)--0
+\]
+\[
+(m--0) \times (n--0) = (mn) -- 0
+\]
+ensures that the definition $m--0:=m$ is consistent with addition and multiplication.
+
+\paragraph{Exercise 4.1.2} \label{exercise4.1.2}
+\begin{proof}
+\[
+a--b = a'--b' \equiv a=b \wedge a'=b'
+\]
+Then, 
+\[
+(b--a) = (b'--a') \equiv -(a--b) = -(a'--b')
+\]
+\end{proof}
+
+\paragraph{Exercise 4.1.3} \label{exercise4.1.3}
+\begin{proof}
+\begin{align*}
+-1 \times a 
+&= (0 -- 1) \times (a -- 0) \\
+&= (0\times a + 1 \times 0) -- (0 \times 0 + 1 \times a) \\
+&= 0 -- a \\
+&= -a
+\end{align*}
+\end{proof}
+
+\paragraph{Exercise 4.1.4} \label{exercise4.1.4}
+\begin{proof}
+Let $x=(a--b),y=(c--d),z=(e--f)$.
+
+(1)
+\begin{align*}
+(a--b) + (c--d) 
+&= (a+c) -- (b+d) \\
+&= (c+a) -- (d+b) \\
+&= (c--d) + (a--b)
+\end{align*}
+
+(2)
+\begin{align*}
+((a--b) + (c--d)) + (e--f)
+&= ((a+c)+e) -- ((b+d)+f) \\
+&= (a+(c+e)) -- (b+(d+f)) \\
+&= (a--b) + ((c--d) + (e--f))
+\end{align*}
+
+(3)
+First ,
+\[
+(a--b) + (0--0) = (a--b)
+\].
+
+Second, by (1) we have $0+x=x+0$.
+
+(4)
+First, 
+\begin{align*}
+(a--b) + (b--a) 
+&= (a+b) -- (a+b) \\
+&= 0 -- 0 \tag{$a+b+0=a+b+0$}
+\end{align*}
+
+Second, by (1) we have $x+(-x) = (-x) + x$.
+
+(5)
+\begin{align*}
+(a--b)(c--d)
+&= (ac + bd) -- (ad + bc) \\
+&= (ca + db) -- (cb + da) \\
+&= (c--d)(a--b)
+\end{align*}
+
+(6)
+The book proved this.
+
+(7)
+First,
+\[
+(1--0)(a--b) = (1a + 0b) -- (1b+0a) = (a--b)
+\]
+
+Second, by (5) we have $1x=x1$.
+
+(8)
+\begin{align*}
+&(a--b)((c--d)+(e--f)) \\
+&= (a--b)((c+e)--(d+f)) \\
+&= (a(c+e) + b(d+f)) -- (a(d+f) + b(c+e)) \\
+&= ((ac + bd)+(ae + bf)) -- ((ad + bc)+(af + be)) \\
+&= (ac+bd)--(ad+bc) + (ae+bf)--(af+be) \\
+&= (a--b)(c--d) + (a--b)(e--f)
+\end{align*}
+
+(9)
+This can be easily concluded from (5) and (8).
+\end{proof}
+
+\paragraph{Exercise 4.1.5} \label{exercise4.1.5}
+\begin{proof}
+We need to show that 
+\[
+a \neq 0 \wedge b \neq 0 \Longrightarrow ab \neq 0
+\]
+
+Since $a,b$ are not 0, they can be either positive or negative. If they are both positive, the case is 
+already proven.
+
+When at least one of them is negative, we can divide the $-1$ from the negative ones. That is, if $a=-m$, 
+where $m$ is positive, then we substitute $a$ with $-1 \times m$. Then we may get $ab$ in either the form 
+$(-1)(-1) mn$ or $(-1) mn$, where the former is a positive number because $(-1)(-1) =1$ and the latter is 
+negative.
+\end{proof}
+
+\paragraph{Exercise 4.1.6} \label{exercise4.1.6}
+\begin{proof}
+We check the value of $ac-bc$. We know that $ac=bc$, so $ac - bc = 0 - 0 = 0$. According to (9) in 
+Proposition 4.1.6, 
+\[
+ac - bc = ac+(-b)c = (a+(-b))c = 0
+\]
+
+As stated by Proposition 4.1.8, since that $c \neq 0$, $a+(-b) = 0$, which means $a-b=0$. Then we have 
+$a=b$.
+\end{proof}
+
+\paragraph{Exercise 4.1.7} \label{exercise4.1.7}
+In the following contents, $p$ stands for a positive natural number, $n$ stands for a natural number.
+
+\begin{proof}
+(a)
+\begin{align*}
+a>b 
+&\equiv a = b+p \\
+&\equiv a+(-b) = b + (-b) + p  \tag{See the following explanation} \\
+&\equiv a-b = p
+\end{align*}
+We now explain why $a = b+p \equiv a+(-b) = b + (-b) + p$. Using the substitution law and the 
+commutativity of addition, it is clear to see that $a = b+p \Longrightarrow a+(-b) = b + (-b) + p$. We now 
+show the cancellation law of addition, that is,
+\begin{lem}
+\[
+a+c = b+c \Longrightarrow a = b
+\]
+\end{lem}
+\begin{proof}
+\begin{align*}
+a+c=b+c
+&\Longrightarrow a+c+(-c) = b+c+(-c) \\
+&\Longrightarrow a+(c+(-c)) = b + (c+(-c)) \\
+&\Longrightarrow a=b
+\end{align*}
+\end{proof}
+
+So we get the inverse result: $a = b+p \Longleftarrow a+(-b) = b + (-b) + p$.
+
+Note that by the definition of integer and what we have know now, we can conclude that 
+\begin{lem}
+For every integer 
+$i = a - b, j = c - d$, there exists exactly one integer $k$ such that $i = j+k$.
+\end{lem}
+
+(b)
+\begin{align*}
+a>b
+&\equiv a = b + p \\
+&\Longrightarrow a+c = b+c+p \\
+&\Longrightarrow a+c>b+c
+\end{align*}
+
+(c)
+\begin{align*}
+a>b
+&\equiv a=b+p \\
+&\Longrightarrow ac = (b+p)c = bc + pc \\
+&\Longrightarrow ac > bc \tag{$pc > 0$ by Lemma 2.3.3}
+\end{align*}
+
+(d)
+\[
+a>b \equiv a = b+p
+\]
+Then
+\[
+-a = -(b+p) = (-1)(b+p) = -b - p
+\]
+So
+\[
+-a+p=-b-p+p
+\]
+That is,
+\[
+-b=-a+p \equiv -b>-a
+\]
+
+(e)
+Let
+\[
+a = b+p_1,b=c+p_2
+\]
+Then $a = c+(p_1+p_2)$. Obviously $p_1+p_2$ is positive, so $a>c$.
+
+Note that $-a,-b$ are also integers, and plus that $-(-a)=a$, so we can give a stronger conclusion:
+\[
+a>b \equiv -a<-b
+\]
+
+(f)
+If $a,b$ are all natural numbers, the statement was proven before. 
+
+If one of them (say $a$) is negative, 
+the other ($b$) is a natural number, then $a=-n$, and we know that $b>0$ and 
+$0 = a+n \Longrightarrow 0 >-a$, so by (e) we have $b>a$.
+
+If they are both negative, then their negations satisfy the statement. Then
+\[
+-a<-b \equiv a>b, -a=-b \equiv a=b, -a>-b \equiv a<b
+\].
+\end{proof}
+
+\paragraph{Exercise 4.1.8} \label{exercise4.1.8}
+An example: $P(i): i>=0$. It is obvious that $P(0)$ and $P(i) \Longrightarrow P(i+1)$ is true. But for any  
+negative integer $n$, $P(n)$ is not true.
