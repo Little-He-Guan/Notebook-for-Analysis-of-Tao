@@ -29,7 +29,10 @@ vacuously true and $Q(n) \equiv P(n)$ when $n \neq 0$. We can see that $Q(n)$ ma
 
 Another thing is, what if a property $P$ does not pertain to $0$? For example, if we let $P$ be a property 
 pertaining to all $n \in \mathbb{N} \wedge n \neq 0$, can we apply mathematical induction to it? Generally 
-we can. We can define the property $Q(n)$ to be $P(S(n))$, then $Q(0) \equiv P(1)$ is the base case.
+we can. We can define the property $Q(n)$ to be $P(S(n))$, then $Q(0) \equiv P(1)$ is the base case. We haven't 
+learned addition and order here. But after we have, it is easy to extend this technique to: If $P$ is a 
+property pertaining to all $n \in \mathbb{N} \wedge n \geq m$, then we can define the property $Q(n)$ to be 
+$P(n+m)$.
 
 \subsection{Addition of Natural Numbers}
 Then we define operations, such as addition, on natural numbers. 
