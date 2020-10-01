@@ -1,0 +1,62 @@
+\part{The Real Numbers}
+
+\section{Cauchy Sequences}
+\paragraph{Exercise 5.1.1} \label{exercise5.1.1}
+\begin{proof}
+Since $(a_n)^\infty_{n=1}$ is a Cauchy sequence, it is 1-steady for some $N$. That implies,
+\[
+\forall n \geq N(|a_n-a_N| \leq 1)
+\]
+And we know that $a_1,a_2,\dots,a_N$ is bounded by some number $M$, which means $|a_N| \leq M$. Expand $|a_n-a_N| \leq 1$ to obtain 
+\[
+a_N-1 \leq a_n \leq a_N+1
+\]
+If $a_N \geq 0$, then $a_n \geq a_N-1 \geq -a_N-1$, then 
+\[
+-(a_N+1) \leq a_n \leq a_N+1 \equiv |a_n| \leq |a_N+1|
+\]
+So 
+\[
+|a_n| \leq |a_N+1| \leq |a_N| + |1| \leq M+1
+\]
+If $a_N < 0$, then $a_n \leq a_N +1 < -a_N+1$, then
+\[
+a_N - 1 \leq a_n \leq -(a_N-1) \equiv |a_n| \leq |a_N-1|
+\]
+We can also get 
+\[
+|a_n| \leq |a_N-1| \leq |a_N| + |1| \leq M+1
+\]
+Therefore, we know that $(a_n)^\infty_1$ is bounded by $M+1$.
+\end{proof}
+
+\section{Equivalent Cauchy Sequences}
+\paragraph{Exercise 5.2.1} \label{exercise5.2.1}
+\begin{proof}
+Although we need to prove that $a_n$ being a Cauchy sequence is logically equivalent to $b_n$ being a Cauchy sequence, showing that one 
+implies another is enough due to the structure of these statements.
+
+Now we show that $a_n$ being a Cauchy sequence implies that $b_n$ being a Cauchy sequence. We need to show that for any $\varepsilon >0$, 
+there exists a $N$ such that for all $m,n\geq N$, $|a_m-a_n| \leq \varepsilon$. 
+
+First we know that for any $\varepsilon >0$, there exists a $N$ such that $\forall m,j\geq N(|a_m-b_j|\leq \varepsilon)$. By substituting $m$ 
+with $n$ we have both $|a_m-b_j|\leq \varepsilon$ and $|a_n-b_j|\leq \varepsilon$.
+Thus, 
+\[
+|a_m-a_n| = |(a_m-b_j) - (a_n-b_j)| \leq |a_m-b_j| + |a_n-b_j| \leq 2\varepsilon
+\]
+
+Then we find the $N'$ such that $\forall m,n\geq N(|a_m-b_n| \leq \varepsilon/2)$, and then for $i,j \geq N$, $|a_i-a_j| \leq \varepsilon$.
+\end{proof}
+
+\paragraph{Exercise 5.2.2} \label{exercise5.2.2}
+\begin{proof}
+We need only to show that $a_n$ being bounded implies that $b_n$ being so because of the structure of these statements. 
+
+Consider \exerciseref{5.1.1}. Since that $(a_n)^\infty_{n=1},(b_n)^\infty_{n=1}$ are eventually $\varepsilon$-close, the sequence 
+$(a_n-b_n)^\infty_{n=1}$ is eventually $\varepsilon$-steady. Thus, according to the exercise mentioned, it is bounded by some number $M$. And 
+we say that $a_n$ is bounded by some number $N$.
+
+So $|a_n-b_n| \leq M$. Again, similar to the proof of $|a_n| \leq |a_N|+1$ in \exerciseref{5.1.1}, we can obtain that 
+$|b_n| \leq |a_n| + M \leq N+M$. Therefore, $b_n$ is also bounded.
+\end{proof}
