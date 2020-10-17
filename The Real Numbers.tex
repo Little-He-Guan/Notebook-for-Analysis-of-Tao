@@ -1,0 +1,177 @@
+\newcommand{\sequence}[2]{(#1)^\infty_{n=#2}}
+
+\part{The Real Numbers}
+
+\section{Cauchy Sequences}
+\paragraph{Exercise 5.1.1} \label{exercise5.1.1}
+\begin{proof}
+Since $(a_n)^\infty_{n=1}$ is a Cauchy sequence, it is 1-steady for some $N$. That implies,
+\[
+\forall n \geq N(|a_n-a_N| \leq 1)
+\]
+And we know that $a_1,a_2,\dots,a_N$ is bounded by some number $M$, which means $|a_N| \leq M$. Expand $|a_n-a_N| \leq 1$ to obtain 
+\[
+a_N-1 \leq a_n \leq a_N+1
+\]
+If $a_N \geq 0$, then $a_n \geq a_N-1 \geq -a_N-1$, then 
+\[
+-(a_N+1) \leq a_n \leq a_N+1 \equiv |a_n| \leq |a_N+1|
+\]
+So 
+\[
+|a_n| \leq |a_N+1| \leq |a_N| + |1| \leq M+1
+\]
+If $a_N < 0$, then $a_n \leq a_N +1 < -a_N+1$, then
+\[
+a_N - 1 \leq a_n \leq -(a_N-1) \equiv |a_n| \leq |a_N-1|
+\]
+We can also get 
+\[
+|a_n| \leq |a_N-1| \leq |a_N| + |1| \leq M+1
+\]
+Therefore, we know that $(a_n)^\infty_1$ is bounded by $M+1$.
+\end{proof}
+
+\section{Equivalent Cauchy Sequences}
+\paragraph{Exercise 5.2.1} \label{exercise5.2.1}
+\begin{proof}
+Although we need to prove that $a_n$ being a Cauchy sequence is logically equivalent to $b_n$ being a Cauchy sequence, showing that one 
+implies another is enough due to the structure of these statements.
+
+Now we show that $a_n$ being a Cauchy sequence implies that $b_n$ being a Cauchy sequence. We need to show that for any $\varepsilon >0$, 
+there exists a $N$ such that for all $m,n\geq N$, $|a_m-a_n| \leq \varepsilon$. 
+
+First we know that for any $\varepsilon >0$, there exists a $N$ such that $\forall m,j\geq N(|a_m-b_j|\leq \varepsilon)$. By substituting $m$ 
+with $n$ we have both $|a_m-b_j|\leq \varepsilon$ and $|a_n-b_j|\leq \varepsilon$.
+Thus, 
+\[
+|a_m-a_n| = |(a_m-b_j) - (a_n-b_j)| \leq |a_m-b_j| + |a_n-b_j| \leq 2\varepsilon
+\]
+
+Then we find the $N'$ such that $\forall m,n\geq N(|a_m-b_n| \leq \varepsilon/2)$, and then for $i,j \geq N$, $|a_i-a_j| \leq \varepsilon$.
+\end{proof}
+
+\paragraph{Exercise 5.2.2} \label{exercise5.2.2}
+\begin{proof}
+We need only to show that $a_n$ being bounded implies that $b_n$ being so because of the structure of these statements. 
+
+Consider \exerciseref{5.1.1}. Since that $(a_n)^\infty_{n=1},(b_n)^\infty_{n=1}$ are eventually $\varepsilon$-close, the sequence 
+$(a_n-b_n)^\infty_{n=1}$ is eventually $\varepsilon$-steady. Thus, according to the exercise mentioned, it is bounded by some number $M$. And 
+we say that $a_n$ is bounded by some number $N$.
+
+So $|a_n-b_n| \leq M$. Again, similar to the proof of $|a_n| \leq |a_N|+1$ in \exerciseref{5.1.1}, we can obtain that 
+$|b_n| \leq |a_n| + M \leq N+M$. Therefore, $b_n$ is also bounded.
+\end{proof}
+
+\section{The Construction of the Real Numbers}
+\paragraph{Exercise 5.3.1} \label{exercise5.3.1}
+\begin{proof}
+Reflectivity: It is immediately derived from $|a_n-a_n| = 0$.
+
+Symmetry: It is immediately derived from $|a_n-b_n| = |b_n-a_n|$.
+
+Transitivity: For any $\varepsilon >0$, we can find $M,N$ such that $\forall n\geq M(|a_n-b_n| \leq \varepsilon)$ and 
+$\forall n\geq N(|b_n-c_n| \leq \varepsilon)$. Let $B = \max{(M,N)}$. Then for $n\geq B$,
+\[
+|a_n-c_n| \leq |a_n-b_n| + |b_n-c_n| \leq 2\varepsilon
+\]
+This can also be deduced by (c) in Proposition 4.3.7
+So $a_n$ and $c_n$ are also equal.
+\end{proof}
+
+\paragraph{Exercise 5.3.2} \label{exercise5.3.2}
+\begin{proof}
+(1)
+We need to show that $(a_nb_n)^\infty_{n=1}$ is a Cauchy sequence. For any $\varepsilon>0$, we can find $M,N$ such that 
+$\forall i,j\geq M(|a_i-a_j| \leq \varepsilon)$ and $\forall i,j\geq N(|b_i-b_j| \leq \varepsilon)$. Let $B = \max{(M,N)}$. Then for 
+$i,j \geq B$, (See (h) in Proposition 4.3.7)
+\[
+|a_ib_i - a_jb_j| \leq \varepsilon(|a_i| + |a_j|) + \varepsilon^2
+\]
+Note that $(a_n)^\infty_{n=1}$ is a Cauchy sequence, so it is bounded by some number $M$. Thus, 
+$|a_i| + |a_j| \leq 2M$. 
+
+For any $\varepsilon' >0$, we need to find a $\varepsilon >0$ such that 
+$\varepsilon(|a_i| + |a_j|) + \varepsilon^2 \leq \varepsilon'$. First, if $\varepsilon' \geq 1$, then by 
+setting $\varepsilon < 1$ we can obtain $\varepsilon^2 < 1 \leq \varepsilon'$; if $\varepsilon' < 1$, then we let $\varepsilon < \varepsilon'$, and multiply it with $\varepsilon < 1$, we then have 
+$\varepsilon^2 < \varepsilon'$. After these steps, we can ensure that $\varepsilon' - \varepsilon^2>0$. 
+
+Consider the number $t = \dfrac{\varepsilon' - \varepsilon^2}{2M}>0$. If $\varepsilon$ already satisfies 
+$\varepsilon <t$, then it is the number we want. If it doesn't, then we can shrink it. That is, let
+$\varepsilon'' < t \leq \varepsilon$. $\varepsilon'' < \varepsilon$ gives 
+$(\varepsilon'')^2 < (\varepsilon)^2$, then $-(\varepsilon'')^2 > -(\varepsilon)^2$, and finally 
+\[
+t'' = \frac{\varepsilon' - (\varepsilon'')^2}{2M}>\frac{\varepsilon' - \varepsilon^2}{2M}
+\]
+So $\varepsilon'' < t < t''$. We can set $\varepsilon$ to this $\varepsilon''$. Then 
+\begin{align*}
+\varepsilon < \frac{\varepsilon' - \varepsilon^2}{2M} &\Longrightarrow \\
+\varepsilon \times 2M < \varepsilon' - \varepsilon^2 &\Longrightarrow \\
+\varepsilon \times 2M + \varepsilon^2 < \varepsilon'
+\end{align*}
+
+So no matter what $\varepsilon'>0$ is, we can always find $\varepsilon >0$ such that 
+\[
+\varepsilon(|a_i| + |a_j|) + \varepsilon^2 \leq \varepsilon'
+\].
+And for this $\varepsilon'$, there exists $N\geq 1$ such that 
+\[
+\forall i,j\geq N(|a_ib_i - a_jb_j| \leq \varepsilon(|a_i| + |a_j|) + \varepsilon^2 \leq \varepsilon')
+\]
+Then, $(a_nb_n)^\infty_{n=1}$ is a Cauchy sequence. So is $xy$ a real number.
+
+(2)
+For any $\varepsilon >0$, we can find $N$ such that $\forall n\geq N(|a_n-a'_n|\leq \varepsilon)$. Thus, for 
+such $n$, 
+\[
+|a_nb_n - a'_nb_n| = |b_n||a_n - a'_n| \leq \varepsilon|b_n|
+\]
+Note that $(b_n)^\infty_{n=1}$ is bounded by some number $M$. So $|a_nb_n - a'_nb_n| \leq \varepsilon M$. 
+Therefore, we find the $N'$ such that $\forall n\geq N'(|a_n-a'_n|\leq \varepsilon/M)$. Then for such $n$, 
+$|a_nb_n - a'_nb_n| \leq \varepsilon$. Thus $\sequence{a_nb_n}{1} = \sequence{a'_nb_n}{1}$.
+\end{proof}
+
+\paragraph{Exercise 5.3.3} \label{exercise5.3.3}
+\begin{proof}
+On one hand, if $a=b$, then obviously $a,a,\cdots = b,b,\cdots$. 
+
+On the other hand, if $a,a,\cdots \neq b,b,\cdots$, we try to show that $a=b$. Presume the contradiction, that is, 
+$a \neq b$. Then, $|a_n-b_n| = |a-b| \geq |a-b|$. For any $0<\varepsilon< |a-b|$, the two Cauchy sequences cannot be 
+$\varepsilon-$close, which is impossible.
+\end{proof}
+
+\paragraph{Lemma 5.3.14}
+Here it is asked that why can we deduce $|b_n| \geq \varepsilon/2$ from $|b_{n0} - b_n| \leq \varepsilon/2$ and 
+$|b_{n0} > \varepsilon$. The book says that the triangle inequality can be used. In fact, we use the fact 
+\[
+||b_{n0}| - |b_n|| \leq |b_{n0} - b_n|
+\]
+instead of $|b_{n0} - b_n| \leq |b_{n0}| + |b_n|$. Since that $|b_{n0}| - |b_n| \leq ||b_{n0}| - |b_n||$, 
+we have 
+\[
+|b_{n0}| - |b_n| \leq \varepsilon/2 \equiv |b_{n0}| \leq \varepsilon/2 + |b_n|
+\]
+But $|b_{n0}| > \varepsilon$, so $\varepsilon/2 + |b_n| > \varepsilon \equiv |b_n| > \varepsilon/2$.
+
+It is not mentioned in (b) of Proposition 4.3.3, but it can be easily proven if we divide conditions, though 
+the process is indeed very tedious.
+
+\paragraph{Exercise 5.3.4} \label{exercise5.3.4}
+\begin{proof}
+Since that the two Cauchy sequences are equivalent, they are eventually $\varepsilon-$steadiness for any $\varepsilon>0$. 
+Then, according to \exerciseref{5.2.2}, $(a_n)^\infty_{n=1}$ being bounded implies that $(b_n)^\infty_{n=1}$ being so.
+\end{proof}
+
+\paragraph{Exercise 5.3.5} \label{exercise5.3.5}
+\begin{proof}
+We show that $(\frac{1}{n})^\infty_{n=1} = (0)^\infty_{n=1}$.
+
+For each $\varepsilon>0$, we want to find $N \in \mathbb{N}$ such that 
+$n\geq N \longrightarrow |\frac{1}{n}-0|\leq \varepsilon$. Note that 
+\[
+|\frac{1}{n}-0|\leq \varepsilon \equiv \frac{1}{n} \leq \varepsilon \equiv \frac{1}{\varepsilon} \leq n
+\], 
+which means that we need to find $N \geq \frac{1}{\varepsilon}$. This is always possible as stated by Proposition 4.4.1.
+
+Then the two sequences are equivalent, which proves our proposition.
+\end{proof}
