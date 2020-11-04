@@ -1,5 +1,3 @@
-\newcommand{\sequence}[2]{(#1)^\infty_{n=#2}}
-
 \part{The Real Numbers}
 
 \section{Cauchy Sequences}
@@ -135,7 +133,7 @@ $|a_nb_n - a'_nb_n| \leq \varepsilon$. Thus $\sequence{a_nb_n}{1} = \sequence{a'
 \begin{proof}
 On one hand, if $a=b$, then obviously $a,a,\cdots = b,b,\cdots$. 
 
-On the other hand, if $a,a,\cdots \neq b,b,\cdots$, we try to show that $a=b$. Presume the contradiction, that is, 
+On the other hand, if $a,a,\cdots \neq b,b,\cdots$, we try to show that $a=b$. Presume the negation, that is, 
 $a \neq b$. Then, $|a_n-b_n| = |a-b| \geq |a-b|$. For any $0<\varepsilon< |a-b|$, the two Cauchy sequences cannot be 
 $\varepsilon-$close, which is impossible.
 \end{proof}
@@ -174,4 +172,205 @@ $n\geq N \longrightarrow |\frac{1}{n}-0|\leq \varepsilon$. Note that
 which means that we need to find $N \geq \frac{1}{\varepsilon}$. This is always possible as stated by Proposition 4.4.1.
 
 Then the two sequences are equivalent, which proves our proposition.
+\end{proof}
+
+\section{Ordering the Reals}
+\paragraph{Exercise 5.4.1} \label{exercise5.4.1}
+\begin{proof}
+We try to show that if a real number $a$ is non-zero, then it must be either positive or negative (not both). We already know from 
+Lemma 5.3.14 that $a$ can equal to $\LIM{a_n}$, where $\sequence{a_n}{1}$ is bounded away from zero. Now we show that every Cauchy 
+sequence that is bounded away from zero can always equal to either a positively bounded away from zero or a negatively bounded away 
+from zero Cauchy sequence.
+
+Let $\sequence{a_n}{1}$ be a Cauchy sequence that is bounded away from zero. Then for every $n$, $|a_n| \geq c$. Choose $\varepsilon$ 
+so that $0<\varepsilon<c$. We can find $N$ such that $m,n \geq N \longrightarrow |a_n-a_m| \leq \varepsilon$. We know that 
+$|a_n| \geq c \longrightarrow a_n\leq -c \vee a_n \geq c$. We will only show that $\sequence{a_n}{1}$ equals to some sequences 
+positively bounded away from zero on the latter condition. It is easy to derive that $\sequence{a_n}{1}$ equals to some sequences 
+negatively bounded away from zero on the former condition.
+
+We have
+\[
+|a_n-a_m| \leq \varepsilon \longrightarrow a_n -\varepsilon <a_m
+\]
+and hence $a_m >c-\varepsilon>0$ since $\varepsilon<c \wedge a_n \geq c$.
+
+Let $\sequence{b_n}{1}$ be such a sequence that
+\begin{itemize}
+\item $m \geq N \longrightarrow b_n = a_n$,
+\item $0<n<N \longrightarrow b_n$ be any value bigger than $c-\varepsilon$.
+\end{itemize}
+
+Thus, $\sequence{b_n}{1}$ is positively bounded away from zero, and is also equivalent to $\sequence{a_n}{1}$ since that 
+$m \geq N \longrightarrow b_n = a_n$.
+
+Now we show that it cannot equal to both. Denote it by $a_n$. Presume the negation, that is, it is equal to both a sequence 
+$x_n \geq c$ and $y_n \leq -c$ for $c>0$. Choose $\varepsilon$ so that $0<\varepsilon<c$. It equals to $x_n$ implies that we can always 
+find $N_1$ such that 
+\[
+n \geq N \longrightarrow |a_n-x_n| \leq \varepsilon \longrightarrow a_n > x_n -\varepsilon >c-\varepsilon >0
+\]
+Similarly, we can find $N_2$ such that
+\[
+a_n < -(c-\varepsilon)<0
+\]
+
+This is impossible, as $a_n$ cannot be eventually $2(c-\varepsilon)$-close.
+
+From what we have shown, we can easily derive that a real number is either positive, negative, or zero.
+
+Now we show that $x$ is positive iff $-x$ is negative. We know $x = \LIM{a_n}$, where $a_n > c>0$. Then 
+$-x = \LIM{-a_n}$. Since that $-a_n < -c <0$, $\sequence{-a_n}{1}$ is negatively bounded away from zero. So $-x$ is 
+negative, as desired.
+
+Finally we show that if $x=\LIM{a_n},y=\LIM{b_n}$ are both positive, then $x+y=\LIM{a_n+b_n},xy = \LIM{a_nb_n}$ is also 
+positive. It is immediately leaded to since 
+\[
+a_n >c>0 \wedge b_n >d>0 \Longrightarrow a_nb_n > cd>0 \wedge a_n+b_n > c+d>0
+\]
+\end{proof}
+
+\paragraph{Exercise 5.4.2} \label{exercise5.4.2}
+\begin{proof}
+(a) It is immediately derived since $x-y$ satisfies Proposition 5.4.4.
+
+(b)
+Denote $x,y$ as $\LIM{a_n},\LIM{b_n}$, respectively. Note that by definition 
+$y-x = \LIM{b_n-a_n} = \LIM{-(a_n-b_n)} = -(x-y)$. So from Proposition 5.4.4 we can see that
+\[
+x>y \equiv x-y>0 \equiv y-x<0 \equiv y<x
+\]
+One might notice that we use $x-y>0$ to represent $x-y$ being positive here. It is quite easy to prove. Just notice that 
+$x$ being positive is logically equivalent to $x-0$ being so, and thus is to $x>0$. We can further prove that $x<0$ is 
+equivalent to $x$ being negative.
+
+(c)
+We know by Proposition 5.4.4 that 
+\[
+x-y >0 \wedge y-z>0 \longrightarrow (x-y)+(y-z) = x-z >0
+\]
+So $x>y \wedge y>z \longrightarrow x>z$.
+
+(d)
+It is immediately deduced as $(x+z)-(y+z) = x-y$.
+
+(e)
+$x>y \equiv x-y>0$. As stated by Proposition 5.4.4, $z(x-y) >0$. So $xz-yz>0 \longrightarrow xz>yz$.
+
+\end{proof}
+
+\begin{prop} \label{prop.5.4.basicproperties}
+Since that reals numbers possess the same basic algebraic properties as the properties possessed by rational numbers, we 
+can ascertain that the corollaries of them are also right. For example,
+\[
+a<b\wedge c<d \longrightarrow a+c<b+d
+\]
+\[
+a,b,c,d>0\wedge a<b\wedge c<d \longrightarrow ac<bd
+\]
+\end{prop}
+
+\paragraph{Exercise 5.4.3} \label{exercise5.4.3}
+\begin{proof}
+Existence:
+For a $\varepsilon>0$, there exists a $N$ such that $n\geq N \longrightarrow |a_n-a_N| \leq \varepsilon$. Choose an 
+arbitrary $c>0$, and let a rational number $y$ be $\LIM{a_N-\varepsilon-c}$. On this occasion, the real number 
+$y-x<0$, which means that $y<x$. 
+
+Since $y$ is a rational number, there exists a natural number $M$ such that $M \leq y$. So $M<x$ the number $M+1$ may be 
+bigger than $x$, and if it is, $M$ is the number we want.
+
+If $M+1 \leq x$, then we check if $(M+1)+1$ is bigger than $x$, and we repeat the step until we find the first natural 
+number $M'$ such that $M'+1>x$. Hence $M'$ is the number we want.
+
+Uniqueness:
+We have already shown that $\exists M(M\leq x<M+1)$.
+Suppose that there exists another natural number $K$ such that $K\leq x<K+1$. We show that $K=M$. Suppose the negation. 
+Then $K$ either $<M$ or $>M$. Under the former condition, $K+1\leq M\leq x$, which is impossible. Under the latter 
+condition, $x<M+1\leq K$, which is also impossible.
+\end{proof}
+
+\paragraph{Exercise 5.4.4} \label{exercise5.4.4}
+\begin{proof}
+\[
+x>0\rightarrow \frac{1}{x}>0\rightarrow \exists N(N>\frac{1}{x}>0)
+\]
+So, according to Proposition 5.4.8,
+\[
+0<\frac{1}{N}<x
+\]
+, as desired.
+\end{proof}
+
+\paragraph{Exercise 5.4.5} \label{exercise5.4.5}
+\begin{proof}
+Let $x=\LIM{x_n},y=\LIM{y_n}$. Since $x>y$, the sequence $\sequence{x_n-y_n}{1}$ equals to a sequence that is positively 
+bounded 
+away from zero. We may just let $\sequence{x_n-y_n}{1}$ be such a sequence. (This is always possible. Given a sequence 
+$\sequence{z_n}{1}$, which is positively bounded away from zero, and satisfies $\LIM{z_n}=x-y$, we can define $x_n$ as 
+$y_n+z_n$) This way, for some $c>0$, $x_n-y_n>c\equiv x_n>c+y_n$. 
+
+Moreover, we can find $N$ such that for $0<\varepsilon<\frac{c}{2}$ and $n\geq N$, 
+$|x_n-x_N|\leq \varepsilon\wedge|y_n-y_N|\leq \varepsilon$, which means
+\[
+x_n\geq x_N -\varepsilon\wedge y_n \leq y_N+\varepsilon
+\]
+Adding $c>2\varepsilon$ to the inequality $x_N \geq y_N+c$ gives
+\[
+x_N>y_N+2\varepsilon \equiv x_N-\varepsilon>y_N+\varepsilon
+\]
+
+This simplifies our work because both $x_N-\varepsilon$ and $y_N+\varepsilon$ are rational numbers, and we know that 
+there exists a rational number $q$ such that $x_N-\varepsilon<q<y_N+\varepsilon$. We now know that for $n\geq N$,
+\[
+x_n \geq x_N -\varepsilon \longrightarrow x_n-q \geq x_N-\varepsilon-q>0
+\]
+and
+\[
+y_n \leq y_N +\varepsilon \longrightarrow q-y_n \geq q-(y_N+\varepsilon)>0
+\]
+Define a new sequence as the following: $x_n'=x_n$ if $n\geq N$, and $x_n'$ be any rational number such that $
+|x_n'-x_N|\leq \varepsilon$, and define $y_n'$ in the same way. Obviously $x=\LIM{x_n'},y=\LIM{y_n'}$. And the sequences
+$\sequence{x_n'-q}{1},\sequence{q-y_n'}{1}$ are both positively bounded away from zero. Hence $x<q<y$, as desired.
+\end{proof}
+
+\paragraph{Exercise 5.4.6} \label{exercise5.4.6}
+\begin{proof}
+On one hand, suppose that $|x-y|<\varepsilon$. If $x=y$, then $y-\varepsilon<x<y+\varepsilon$ is obvious. If $x>y$, then 
+$|x-y|=x-y<\varepsilon \rightarrow x<y+\varepsilon$, and $x>y \rightarrow x>y-\varepsilon$. If $x<y$, then 
+$x<y+\varepsilon$ and $|x-y|=y-x<\varepsilon\rightarrow x>y-\varepsilon$.
+
+On the other hand, conversely, suppose that 
+\[
+y-\varepsilon<x<y+\varepsilon \rightarrow x-y<\varepsilon \wedge y-x<\varepsilon
+\]. If $x>y$, then $|x-y|=x-y<\varepsilon$. If $x=y$, then $|x-y|=0<\varepsilon$. If $x<y$, then 
+$|x-y|=y-x<\varepsilon$.
+\end{proof}
+
+\paragraph{Exercise 5.4.7} \label{exercise5.4.7}
+\begin{proof}
+(a)
+On one hand, if $x\geq y$, then add $0<\varepsilon$ to it (See Proposition \ref{prop.5.4.basicproperties}), we have 
+$x \geq y+\varepsilon$.
+
+On the other hand, conversely, if for all real number $\varepsilon>0$, $x \leq y+\varepsilon$, we show that $x\leq y$. 
+Presume the negation, that is, $x>y$, then as stated by Proposition 5.4.14, we can find $q$ such that $x>q>y$, so 
+$x>y+(q-y)$, a contradiction.
+
+(b)
+On one hand, suppose that $|x-y|\leq \varepsilon$ for all $\varepsilon>0$. If $x\geq y$, then 
+$|x-y|=x-y \leq \varepsilon$, so we have $x\leq y$ by (a). If $x\leq y$, we can conclude that $x\geq y$ as well. So 
+either way we will have $x=y$.
+
+On the other hand, if $x=y$, then $|x-y|=0<\varepsilon$.
+\end{proof}
+
+\paragraph{Exercise 5.4.8} \label{exercise5.4.8}
+\begin{proof}
+We shall just prove the first one here.
+
+Presume the negation, that is, $\LIM{a_n}>x$. Then we can find a rational $q$ such that $x<q<\LIM{a_n}$
+(Proposition 5.4.14).
+We can conclude that 
+$a_n\leq x<q$ (Corollary 5.4.10),
+so $\LIM{a_n}<\LIM{q}=q$. But we have $\LIM{a_n}>q$, a contradiction.
 \end{proof}

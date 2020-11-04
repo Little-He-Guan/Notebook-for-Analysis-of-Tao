@@ -4,6 +4,14 @@
 \documentclass[11pt]{article}
 
 \usepackage{amsmath}
+
+% For writing Cauchy sequences in section 5
+\newcommand{\sequence}[2]{(#1)^\infty_{n=#2}}
+
+% For LIM in section 5
+\DeclareMathOperator*{\LIMo}{LIM}
+\newcommand{\LIM}[1]{\LIMo_{n \to \infty}{#1}}
+
 \usepackage{amsthm}
 \usepackage{amssymb}
 
@@ -159,6 +167,11 @@ You can get a copy of source code at
 \foreach \x in {1,2,...,5}
 {
 \exerciseref{5.3.\x} --- \pageref{exercise5.3.\x} \\
+}
+
+\foreach \x in {1,2,...,8}
+{
+\exerciseref{5.4.\x} --- \pageref{exercise5.4.\x} \\
 }
 
 \foreach \x in {1,2,...,6}

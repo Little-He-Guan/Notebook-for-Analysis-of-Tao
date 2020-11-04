@@ -694,7 +694,7 @@ If $x=y$, then $|x-y| = 0$. And any positive rational $\varepsilon >0$, so $|x-y
 
 The other statement is much better easier to prove after we have know the denseness of rationals. We 
 essentially repeat some of the proof work that are done afterwards here.
-On the other hand, suppose the contradiction, that is, $(\forall \varepsilon>0)(|x-y| \leq \varepsilon)$, but 
+On the other hand, suppose the negation, that is, $(\forall \varepsilon>0)(|x-y| \leq \varepsilon)$, but 
 $x\neq y$. Then $x-y \neq 0$. Let $\delta = |x-y| \neq 0$. We know that $2^{-1} = 1/2 > 0$, so 
 $\delta / 2 > 0$. Also we have $\delta /2 + \delta /2 = \delta \Longrightarrow \delta /2 < \delta$. Then let 
 $\varepsilon = \delta /2$. So we have both $|x-y| < \delta/2$ and $|x-y| > \delta /2$, which is impossible. 
@@ -1011,7 +1011,7 @@ i<j \equiv -i>-j \equiv -i \geq -j+1 \equiv i \leq j-1 \equiv i+1 \leq j
 \]
 
 (2)
-Suppose the contradiction, that there exists a integer $j$ such that $i<j<i+1$. We know that 
+Suppose the negation, that there exists a integer $j$ such that $i<j<i+1$. We know that 
 $i<j \equiv i+1 \leq j \equiv j \geq i+1$. But we also have $j<i+1$, which is impossible.
 \end{proof}
 
@@ -1021,7 +1021,7 @@ $x<n+1\leq m$, so $m \leq x$ is impossible.
 
 \paragraph{Exercise 4.4.2} \label{exercise4.4.2}
 \begin{proof}
-(a) We will use a different approach from the hint the book provided here. After assuming the contradiction, we 
+(a) We will use a different approach from the hint the book provided here. After assuming the negation, we 
 try to prove that 
 $a_n \leq a_0 -n$. Note that subtraction may results in a overflow (that is, natural numbers flows to negative 
 integers). So we will first define $a_n$ as integers. And we try to show that no such infinite descent 
@@ -1044,7 +1044,7 @@ $\mathbb{N}$.
 
 \paragraph{Exercise 4.4.3} \label{exercise4.4.3}
 \begin{proof}
-(1) Suppose the contradiction, that natural number $n=2k=2k'+1$, where $k,k'$ are also natural. Then $2k=2k'+1$
+(1) Suppose the negation, that natural number $n=2k=2k'+1$, where $k,k'$ are also natural. Then $2k=2k'+1$
 Then we have $2k > 2k' \Longrightarrow k>k'$. But $2k+1 = 2(k'+1)$, so $2(k'+1) > 2k \Longrightarrow k'+1 >k$. 
 But we know that between $k',k'+1$ there exists no natural numbers. so it is impossible. (Note that we don't 
 have a proposition saying $ac>bc \Longrightarrow a>b$ for natural numbers, but we can first deal with them with 

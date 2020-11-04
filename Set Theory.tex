@@ -344,7 +344,7 @@ On the other hand, Suppose that $x \in A$, then $x \in A \cup (A \cap B)$.
 \]
 \end{lem}
 \begin{proof}
-Suppose the contradiction: $x \in A \wedge x \in B \wedge A \cap B = \varnothing$, then 
+Suppose the negation: $x \in A \wedge x \in B \wedge A \cap B = \varnothing$, then 
 $x \in A \cap B$, and thus $\in \varnothing$, which is impossible.
 \end{proof}
 
@@ -440,11 +440,11 @@ elements of $A$.
 \paragraph{Exercise 3.2.2} \label{exercise3.2.2}
 \begin{proof}
 (1)
-Suppose the contradiction: $\exists A(A \in A)$. Then by Axiom 3.3, construct a set $B:= \{A\}$. $A$ is 
+Suppose the negation: $\exists A(A \in A)$. Then by Axiom 3.3, construct a set $B:= \{A\}$. $A$ is 
 the only element in $B$. $A$ is a set. $A$ is not disjoint from $B$, for $A \in A \wedge A \in B$. 
 
 (2)
-Suppose the contradiction: $A \in B \wedge B \in A$. Construct a set $S: \{A,B\}$. $A$ is an element of 
+Suppose the negation: $A \in B \wedge B \in A$. Construct a set $S: \{A,B\}$. $A$ is an element of 
 $S$. $A$ is a set. $A$ is not disjoint from $S$, for $B \in A \wedge B \in S$.
 \end{proof}
 
@@ -480,7 +480,7 @@ And then $\overset{\sim}{g}(\overset{\sim}{f}(x)) = g(\overset{\sim}{f}(x)) = g(
 
 \paragraph{Exercise 3.3.2} \label{exercise3.3.2}
 \begin{proof}
-The former: Suppose the contradiction:
+The former: Suppose the negation:
 \[
 \exists x \exists x'(g(f(x)) = g(f(x')) \wedge x \neq x')
 \]
@@ -492,7 +492,7 @@ x = x' \tag{$f$ is injective}
 \end{align*}, 
 which is impossible.
 
-The latter: Suppose the contradiction:
+The latter: Suppose the negation:
 \[
 \exists z \forall x(z \in Z \wedge g \circ f(x) \neq z) 
 \]
@@ -538,7 +538,7 @@ $f = \overset{\sim}{f}$.
 It is not true if $g$ is not injective. Consider an extreme condition, where $g$ is constant. So 
 whatever $f,\overset{\sim}{f}$ are, $g \circ f = g \circ \overset{\sim}{f}$ are always equal.
 
-The latter: Suppose the contradiction:$g \neq \overset{\sim}{g}$.
+The latter: Suppose the negation:$g \neq \overset{\sim}{g}$.
 $g,\overset{\sim}{g}$ have the same range and domain. But they are not equal, so 
 $\exists y(y \in Y \wedge g(y) \neq \overset{\sim}{g}(y))$. Because $f$ is surjective, 
 $\exists x(x \in X \wedge f(x) = y)$. However, $g \circ f(x) = \overset{\sim}{g} \circ f(x)$, so 
@@ -551,7 +551,7 @@ as well make $g(y') \neq \overset{\sim}{g}(y')$ if $\nexists x(y'=f(x))$.
 \paragraph{Exercise 3.3.5} \label{exercise3.3.5}
 \begin{proof}
 Injectivity:
-Suppose the contradiction, that 
+Suppose the negation, that 
 \[
 \exists x \exists x'(x \neq x' \wedge f(x) = f(x'))
 \], which immediately gives 
@@ -806,7 +806,7 @@ y \in S \Longrightarrow \exists x(x \in X \wedge f(x) = y)
 Such $x$ are elements of $f^{-1}(S)$ of course, so $f(f^{-1}(S)) = S$.
 
 (2) On one hand, we show that $\forall S(S \subseteq X \Longrightarrow f^{-1}(f(S)) = S)$ implies that 
-$f$ is injective. Suppose the contradiction, that when 
+$f$ is injective. Suppose the negation, that when 
 \[
 \forall S(S \subseteq X \Longrightarrow f^{-1}(f(S)) = S)
 \], but $f$ is not injective. Since $f$ is not injective, 
@@ -1641,7 +1641,7 @@ Then $g$ is surjective.
 
 \paragraph{Exercise 3.6.10} \label{exercise3.6.10}
 \begin{proof}
-Presume the contradiction:
+Presume the negation:
 \[
 \forall i(i \in \{1,\dots,n\} \Longrightarrow \#(A_i) < 2)
 \]
