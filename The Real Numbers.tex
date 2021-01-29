@@ -369,8 +369,99 @@ On the other hand, if $x=y$, then $|x-y|=0<\varepsilon$.
 We shall just prove the first one here.
 
 Presume the negation, that is, $\LIM{a_n}>x$. Then we can find a rational $q$ such that $x<q<\LIM{a_n}$
-(Proposition 5.4.14).
-We can conclude that 
-$a_n\leq x<q$ (Corollary 5.4.10),
-so $\LIM{a_n}<\LIM{q}=q$. But we have $\LIM{a_n}>q$, a contradiction.
+(Proposition 5.4.14). Thus
+$a_n\leq x<q$,
+and then $\LIM{a_n}\leq\LIM{q}=q$ (Corollary 5.4.10). But we have $\LIM{a_n}>q$, a contradiction.
+\end{proof}
+
+\section{The Least Upper Bound Property}
+
+\paragraph{Example 5.5.3}
+This set has no upper bound because
+\begin{itemize}
+\item If $x$ is greater than an element in the set, then $x$ must also be an element in the set;
+\item $\forall x \in \mathbb{R}^+(\exists y(y \in \mathbb{R}^+ \wedge y>x))$.
+\end{itemize}
+\begin{proof}
+(1)
+This is immediately derived from the fact that order is transitive (Proposition 5.4.7).
+
+(2)
+Consider the number $x+1$, which, according to (1), is also in the set, and which, is greater than $x$ as $y-x = 1>0$.
+\end{proof}
+
+\paragraph{Exercise 5.5.1} \label{exercise5.5.1}
+\begin{proof}
+First we show that every upper bound of $E$, $N$, is a lower bound for $-E$, and vice versa. This can be concluded from
+\[
+x \leq N \equiv -x \geq -N
+\]
+Then we show that $-M$ is the greatest lower bound. In fact,
+\[
+M \leq N \to -M \geq -N
+\]
+\end{proof}
+
+\paragraph{Exercise 5.5.2} \label{exercise5.5.2}
+\begin{proof}
+We show that for all $L<m\leq K$, there at least exists one $m_0$ such that we can not have both $\frac{m_0}{n}$ and $\frac{m_0-1}{n}$ being upper bounds and they not being upper bounds. That is, for this $m_0$, either 
+\[
+\frac{m_0}{n} \text{ is an upper bound} \wedge \frac{m_0-1}{n} \text{ is not}
+\]
+, which is impossible as $\frac{m_0}{n}>\frac{m_0-1}{n}$, or
+\[
+\frac{m_0-1}{n} \text{ is an upper bound} \wedge \frac{m_0}{n} \text{ is not}.
+\]
+
+Presume the negation, that is, (Note that this statement includes the situation when $\frac{m_0}{n}$ and $\frac{m_0-1}{n}$ are both not upper bounds)
+\[
+(\forall L<m\leq K)(\frac{m_0}{n} \text{ is an upper bound} \equiv \frac{m_0-1}{n} \text{ is an upper bound})
+\]
+We know that when $m=K$, $m/n$ is an upper bound. Then $(m-1)/n$ also is. Repeat the step until $m=L+1$, then we can 
+conclude that $\frac{m-1=L}{n}$ is an upper bound, a contradiction.
+\end{proof}
+
+\paragraph{Exercise 5.5.3} \label{exercise5.5.3}
+\begin{proof}
+\emph{This is a different approach.}
+
+On one hand, for all $x<m_n \to x \leq m_n-1$, $x/n\leq (m_n-1)/n$, which means such $x/n$ cannot be upper bounds. On the other hand, 
+for all $x>m_n \to x-1\geq m_n$, $(x-1)/n\geq m_n/n$.
+\end{proof}
+
+\paragraph{Exercise 5.5.4} \label{exercise5.5.4}
+\begin{proof}
+(1) Simply take $M \geq \varepsilon$, then $|m_n/n-m_{n'}/n'|\leq 1/M\leq \varepsilon$.
+
+(2)
+Since we want to use \exerciseref{5.4.8}, we need to prove that for some $N$, $(\forall n \geq N, q_n < q_M) \vee (\forall n \geq N, q_n > q_M)$. This thought introduces the following lemma:
+\begin{lem}
+For any Cauchy sequence $a_n$, if $a_M \neq \LIM{a_n}$, then there exists a $N$ such that for all $n$ greater than or equal to it, $a_n$ are either all lesser than $a_M$ or all greater than $a_M$.
+\end{lem}
+\begin{proof}
+Since $q_M \neq \LIM{a_n}$,
+\[
+\neg (\forall \varepsilon>0(\exists N(n\geq N \to |a_n-a_M| \leq \varepsilon) ))
+\]
+, which is
+\[
+\exists \varepsilon >0 (\forall N(\exists n\geq N(|a_n-a_M| > \varepsilon)))
+\]
+For this $\varepsilon$, $\exists N_1(n,n'\geq N_1 \to |a_n-a_{n'}| \leq \varepsilon)$. But we know $\exists N_2 \geq N_1(|a_{N_2}-a_M| > \varepsilon)$. So for all $n \geq N_2$, we have
+\[
+|a_n-a_{N_2}| \leq \varepsilon \wedge |a_{N_2} - a_M| > \varepsilon
+\]
+This means either $a_n < q_{M}$ (when $a_M > a_{N_2}$), or $a_n > a_{M}$ (when $a_M < a_{N_2}$).
+\end{proof}
+
+If $q_M = S$, then $|q_M-S| = 0 \leq \frac{1}{M}$.
+
+If $q_M \neq S$, then according to the previous lemma, for some $N$ and all $n\geq N$, $q_n > q_M$ or $q_n<q_M$. We suppose that $q_n > q_M$ here. We also know that for all $n\geq M$, $|q_M - q_n| \leq \frac{1}{M}$. Then for $n \geq \max(N,M)$, we can say that $\frac{1}{M} \leq q_n - q_M >0$. The limit of the sequence $(q_n-q_M)_1^n$ is $S-q_M$ (To really make it a sequence, we define its value to be any number between $\frac{1}{M}$ and 0 when $n < \max(N,M)$). We can now apply \exerciseref{5.4.8} to it to obtain $\frac{1}{M}\leq S-q_M >0$ (Note that $S \neq q_M$ is our hypothesis.) A similar process produces $\frac{1}{M}\leq q_M-S >0$ when $q_n<q_M$. 
+
+We can now finish the proof.
+\end{proof}
+
+\paragraph{Exercise 5.5.5} \label{exercise5.5.5}
+\begin{proof}
+We will prove that there exists an irrational number $0<i<y-x$ and then $x+i$ automatically becomes the number we want.
 \end{proof}

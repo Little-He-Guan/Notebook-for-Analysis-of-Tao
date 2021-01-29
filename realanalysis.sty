@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{realanalysis}
+
+\RequirePackage{mymath}
+
+% For writing Cauchy sequences in section 5
+\newcommand{\sequence}[2]{(#1)^\infty_{n=#2}}
+
+% For LIM in section 5
+\DeclareMathOperator*{\LIMo}{LIM}
+\newcommand{\LIM}[1]{\LIMo_{n \to \infty}{#1}}
+
+% Used for \foreach loop
+\RequirePackage{pgffor}
